@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { client } from '@/lib/sanity'
 
-async functiotegories() {
+async function getCategories() {
   try { return await client.fetch(`*[_type=="category"]{_id,title,slug}`) }
   catch { return [] }
 }
