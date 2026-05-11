@@ -5,8 +5,8 @@ export default function Blog() {
   return (
     <main>
       <Navbar />
-      <div className="pt-24 pb-12 bg-gradient-to-b from-[#2D5016] to-[#4A8B1F] text-white text-center">
-        <h1 className="text-5xl font-black">Blog</h1>
+      <div className="pt-32 pb-16 bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] text-white text-center">
+        <h1 className="text-5xl md:text-6xl font-black drop-shadow-xl">Blog</h1>
         <p className="mt-4 text-white/80">News & Updates from Momil Foods</p>
       </div>
       <div className="max-w-5xl mx-auto px-4 py-16 text-center text-gray-400">

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="50" viewBox="0 0 160 50">
+  <rect width="44" height="44" x="2" y="3" rx="8" fill="#2D5016"/>
+  <ellipse cx="24" cy="18" rx="10" ry="6" fill="#F5C518"/>
+  <path d="M14 24 Q24 14 34 24" fill="#4A8B1F"/>
+  <path d="M17 28 Q24 18 31 28" fill="#7DC232"/>
+  <text x="52" y="22" font-family="Arial" font-weight="bold" font-size="16" fill="#2D5016">Momil</text>
+  <text x="52" y="38" font-family="Arial" font-size="11" fill="#4A8B1F" letter-spacing="3">FOODS</text>
+</svg>

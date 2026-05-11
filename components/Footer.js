@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2D5016] text-white pt-12 pb-6">
+    <footer className="bg-[#102006] text-white pt-12 pb-6 border-t-4 border-[#F5C518]">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 className="text-[#F5C518] font-bold text-lg mb-4">Momil Foods</h3>
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="text-center text-white/40 text-sm mt-8">© 2025 Momil Foods Pvt. Ltd.</div>
+      <div className="text-center text-white/50 text-sm mt-8 border-t border-white/10 pt-6">© 2025 Momil Foods Pvt. Ltd.</div>
     </footer>
   )
 }

@@ -1,0 +1,3 @@
+module.exports=[4047,a=>{a.v({className:"inter_396b12ce-module__rRjk0G__className"})},62925,a=>{"use strict";var b=a.i(7997),c=a.i(4047);let d={className:c.default.className,style:{fontFamily:"'Inter', 'Inter Fallback'",fontStyle:"normal"}};null!=c.default.variable&&(d.variable=c.default.variable),a.s(["default",0,function({children:a}){return(0,b.jsx)("html",{lang:"en",children:(0,b.jsx)("body",{className:d.className,children:a})})},"metadata",0,{title:"Momil Foods - Quality Food & Beverages Exporter",description:"Momil Foods Pvt. Ltd. - Premium Pakistani food exporter. Fruit juices, dry fruits, snacks, bakery products and more."}],62925)},19325,a=>{a.n(a.i(62925))}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__0f8tfag._.js.map
