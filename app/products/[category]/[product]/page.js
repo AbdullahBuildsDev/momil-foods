@@ -10,7 +10,7 @@ async function getData(productSlug) {
   } catch { return { categories:[], product:null } }
 }
 
-export default async fution ProductPage({ params }) {
+export default async function ProductPage({ params }) {
   const { categories, product } = await getData(params.product)
   if (!product) return <div className="pt-32 text-center text-gray-400">Product not found.</div>
   return (
