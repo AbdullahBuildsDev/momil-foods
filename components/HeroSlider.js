@@ -19,16 +19,16 @@ export default function HeroSlider({ slides = [] }) {
   }, [data.length])
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-dvh w-full shrink-0 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={data[current].id || data[current]._id}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className={`absolute inset-0 bg-gradient-to-br ${data[current].bg} flex items-center justify-center`}
+          className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${data[current].bg}`}
         >
           <div className="absolute inset-0 bg-black/25" />
-          <div className="relative text-center text-white px-4">
+          <div className="relative mx-auto max-w-5xl px-4 text-center text-white">
             <motion.p initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
               className="text-2xl tracking-widest uppercase mb-2 text-[#F5C518] font-semibold drop-shadow">{data[current].subtitle}</motion.p>
             <motion.h1 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}

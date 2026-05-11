@@ -7,12 +7,21 @@ export default async function ProductPage({ params }) {
   const product = getProduct(productSlug)
   const category = getCategory(categorySlug)
 
-  if (!product) return <div className="pt-32 text-center text-gray-400">Product not found.</div>
+  if (!product)
+    return (
+      <main className="flex min-h-0 w-full flex-1 flex-col">
+        <Navbar />
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-center px-4 pb-16 pt-32 text-center text-gray-400">
+          Product not found.
+        </div>
+        <Footer />
+      </main>
+    )
 
   return (
-    <main>
+    <main className="flex min-h-0 w-full flex-1 flex-col">
       <Navbar />
-      <div className="max-w-5xl mx-auto px-4 pt-28 pb-16">
+      <div className="mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col px-4 pb-16 pt-32 sm:px-6">
         <div className="grid md:grid-cols-2 gap-12">
           {product.image
             ? <img src={product.image} alt={product.title} className="rounded-2xl w-full h-96 object-cover" />

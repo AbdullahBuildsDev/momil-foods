@@ -3,13 +3,14 @@ import Footer from '@/components/Footer'
 
 export default function Contact() {
   return (
-    <main>
+    <main className="flex min-h-0 w-full flex-1 flex-col">
       <Navbar />
-      <div className="pt-32 pb-16 bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] text-white text-center">
-        <h1 className="text-5xl md:text-6xl font-black drop-shadow-xl">Get In Touch</h1>
-        <p className="mt-4 text-white/80">We would love to hear from you</p>
-      </div>
-      <div className="max-w-5xl mx-auto px-8 py-16 grid md:grid-cols-2 gap-12">
+      <div className="flex min-h-0 flex-1 flex-col">
+        <div className="bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] px-4 pb-16 pt-32 text-center text-white">
+          <h1 className="text-5xl font-black drop-shadow-xl md:text-6xl">Get In Touch</h1>
+          <p className="mt-4 text-white/80">We would love to hear from you</p>
+        </div>
+        <div className="mx-auto grid w-full max-w-5xl flex-1 gap-12 px-4 py-16 sm:px-8 md:grid-cols-2">
         <div>
           <h2 className="text-2xl font-bold text-[#2D5016] mb-6">Send Enquiry</h2>
           <form className="space-y-4">
@@ -23,7 +24,7 @@ export default function Contact() {
         <div>
           <h2 className="text-2xl font-bold text-[#2D5016] mb-6">Contact Info</h2>
           <div className="space-y-4">
-            <div className="p-4 bg-[#FDE68A] rounded-xl"><p className="font-bold text-[#2D5016]">📍 Address</p><p className="text-[#2D5016] -1">171 Eden Avenue, New Airport Road, Lahore, Pakistan</p></div>
+            <div className="p-4 bg-[#FDE68A] rounded-xl"><p className="font-bold text-[#2D5016]">📍 Address</p><p className="mt-1 text-[#2D5016]">171 Eden Avenue, New Airport Road, Lahore, Pakistan</p></div>
             <div className="p-4 bg-[#FDE68A] rounded-xl"><p className="font-bold text-[#2D5016]">📧 Email</p><p className="text-[#2D5016] mt-1">momilfoods@gmail.com</p></div>
             <div className="p-4 bg-[#FDE68A] rounded-xl"><p className="font-bold text-[#2D5016]">🌍 Export Markets</p><p className="text-[#2D5016] mt-1">USA · Vietnam · Oman · Pakistan</p></div>
           </div>
@@ -32,6 +33,7 @@ export default function Contact() {
               <a key={name} href={href} className="px-4 py-2 bg-[#2D5016] text-white rounded-lg text-sm hover:bg-[#4A8B1F] transition">{name}</a>
             ))}
           </div>
+        </div>
         </div>
       </div>
       <Footer />

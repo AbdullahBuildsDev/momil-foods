@@ -5,12 +5,13 @@ import Link from 'next/link'
 
 export default function Products() {
   return (
-    <main>
+    <main className="flex min-h-0 w-full flex-1 flex-col">
       <Navbar />
-      <div className="pt-32 pb-16 bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] text-white text-center">
-        <h1 className="text-5xl md:text-6xl font-black drop-shadow-xl">Our Products</h1>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 flex gap-8">
+      <div className="flex min-h-0 flex-1 flex-col">
+        <div className="bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] px-4 pb-16 pt-32 text-center text-white">
+          <h1 className="text-5xl font-black drop-shadow-xl md:text-6xl">Our Products</h1>
+        </div>
+        <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 gap-8 px-4 py-12 md:px-8">
         <aside className="hidden md:block w-56 shrink-0">
           <h3 className="font-bold text-[#2D5016] mb-4 text-lg border-b-2 border-[#F5C518] pb-2">Browse by</h3>
           <Link href="/products" className="block py-2 text-[#2D5016] hover:text-[#7DC232] font-semibold">All products</Link>
@@ -39,6 +40,7 @@ export default function Products() {
               )
             })}
           </div>
+        </div>
         </div>
       </div>
       <Footer />

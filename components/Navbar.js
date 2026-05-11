@@ -14,7 +14,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#102006] shadow-xl' : 'bg-[#102006]/90 backdrop-blur-md'}`}>
+    <nav className={`fixed top-0 z-50 w-full shrink-0 transition-all duration-300 ${scrolled ? 'bg-[#102006] shadow-xl' : 'bg-[#102006]/90 backdrop-blur-md'}`}>
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-[72px] min-h-[72px]">
         <Link href="/" className="text-white font-bold text-xl">
           <img src="/logo.svg" alt="Momil Foods" className="h-11 w-auto" />
@@ -22,16 +22,30 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className="text-white hover:text-[#F5C518] transition font-semibold">HOME</Link>
           <Link href="/about" className="text-white hover:text-[#F5C518] transition font-semibold">ABOUT</Link>
-          <div className="relative" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
-            <button className="text-white hover:text-[#F5C518] transition font-semibold">PRODUCTS ▾</button>
+          <div
+            className="relative"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <button type="button" className="text-white hover:text-[#F5C518] transition font-semibold">
+              PRODUCTS ▾
+            </button>
             {dropdownOpen && (
-              <div className="absolute top-full left-0 bg-[#102006] min-w-56 shadow-2xl border-t-2 border-[#F5C518]">
-                <Link href="/products" className="block px-4 py-3 text-[#F5C518] font-bold hover:bg-[#223B10] text-sm">All Products</Link>
-                {categories.map((cat) => (
-                  <Link key={cat.id} href={`/products/${cat.slug}`} className="block px-4 py-3 text-white hover:bg-[#223B10] hover:text-[#F5C518] text-sm">
-                    {cat.title}
+              <div className="absolute left-0 top-full z-[60] pt-2">
+                <div className="min-w-56 border-t-2 border-[#F5C518] bg-[#102006] py-1 shadow-2xl">
+                  <Link href="/products" className="block px-4 py-3 text-sm font-bold text-[#F5C518] hover:bg-[#223B10]">
+                    All Products
                   </Link>
-                ))}
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat.id}
+                      href={`/products/${cat.slug}`}
+                      className="block px-4 py-3 text-sm text-white hover:bg-[#223B10] hover:text-[#F5C518]"
+                    >
+                      {cat.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
