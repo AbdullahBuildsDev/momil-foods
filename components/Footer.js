@@ -5,8 +5,11 @@ export default function Footer() {
   return (
     <footer className="momil-footer text-white">
 
+      {/* breathing gap between page content and footer */}
+      <div style={{ height: '1px', background: 'rgba(184,198,59,0.35)' }} />
+
       {/* ── Main 3-column body ── */}
-      <div className="site-container py-16 md:py-20 grid grid-cols-1 gap-12 md:grid-cols-[1.5fr_1fr_1.2fr] md:gap-16 lg:gap-24 items-start">
+      <div className="site-container grid grid-cols-1 gap-12 md:grid-cols-[1.5fr_1fr_1.2fr] md:gap-16 lg:gap-24 items-start" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
 
         {/* Brand */}
         <div>

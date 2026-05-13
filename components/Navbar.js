@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { categories, products } from '@/lib/data'
+import { categories } from '@/lib/data'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -18,95 +18,107 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navLinkClass = (href) => {
-    const active = pathname === href
-    return `relative text-[13px] font-semibold uppercase text-white transition hover:text-[#F5C518] after:absolute after:left-0 after:-bottom-3 after:h-[2px] after:bg-[#B8C63B] after:transition-all ${active ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`
-  }
-
-  const menuCategories = categories.slice(0, 9).map((cat) => ({
-    ...cat,
-    items: products.filter((product) => product.category === cat.id).slice(0, 3),
-  }))
-
   const isHome = pathname === '/'
 
+  const navLink = (href, label) => {
+    const active = pathname === href || (href !== '/' && pathname.startsWith(href))
+    return (
+      <Link href={href}
+        className={`relative text-[13px] font-semibold uppercase text-white transition-colors hover:text-[#F5C518] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-[#B8C63B] after:transition-all ${active ? 'after:w-full text-[#F5C518]' : 'after:w-0 hover:after:w-full'}`}>
+        {label}
+      </Link>
+    )
+  }
+
   return (
-    <nav className={`fixed top-0 w-full z-50 border-b border-white/10 transition-all duration-300 ${scrolled || mobileOpen || !isHome ? 'bg-[#070b05]/95 shadow-2xl backdrop-blur-xl' : 'bg-black/30 backdrop-blur-[2px]'}`}>
-      <div className="site-container flex items-center justify-between h-[86px] md:h-[96px]">
-        <Link href="/" className="flex items-center">
-          <Image src="/logo.svg" alt="Momil Foods" width={150} height={76} className="h-14 md:h-16 w-auto" priority />
+    <nav className={`fixed top-0 w-full z-50 border-b border-white/10 transition-all duration-300 ${scrolled || mobileOpen || !isHome ? 'bg-[#070b05]/96 shadow-2xl backdrop-blur-xl' : 'bg-black/30 backdrop-blur-[2px]'}`}>
+      <div className="site-container flex items-center justify-between h-[80px] md:h-[90px]">
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center shrink-0">
+          <Image src="/logo.svg" alt="Momil Foods" width={140} height={70} className="h-12 md:h-14 w-auto" priority />
         </Link>
-        <div className="hidden md:flex items-center gap-10">
-          <Link href="/" className={navLinkClass('/')}>Home</Link>
-          <Link href="/about" className={navLinkClass('/about')}>About</Link>
-          <div className="relative py-8 -my-8" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
-            <button className={navLinkClass('/products')} aria-expanded={dropdownOpen}>Products <span className="text-[#B8C63B]">⌄</span></button>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          {navLink('/', 'Home')}
+          {navLink('/about', 'About')}
+
+          {/* Products dropdown */}
+          <div className="relative" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+            <button className={`flex items-center gap-1 text-[13px] font-semibold uppercase text-white transition-colors hover:text-[#F5C518] ${pathname.startsWith('/products') ? 'text-[#F5C518]' : ''}`}>
+              Products
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}>
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </button>
+
             {dropdownOpen && (
-              <div className="absolute left-1/2 top-full w-[760px] -translate-x-1/2 pt-4">
-                <div className="bg-[#080c05]/98 shadow-2xl border-t-2 border-[#B8C63B] p-7 backdrop-blur-xl">
-                  <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-                    <p className="text-xs font-black uppercase tracking-[0.28em] text-[#F5C518]">Browse Products</p>
-                    <Link href="/products" className="text-xs font-black uppercase tracking-[0.18em] text-white hover:text-[#F5C518]">All Products</Link>
-                  </div>
-                  <div className="grid grid-cols-3 gap-x-8 gap-y-6">
-                    {menuCategories.map((cat) => (
-                      <div key={cat.id}>
-                        <Link href={`/products/${cat.slug}`} className="block text-sm font-black uppercase leading-tight text-white hover:text-[#F5C518]">
-                          {cat.title}
-                        </Link>
-                        <div className="mt-2 grid gap-1.5">
-                          {cat.items.length > 0 ? cat.items.map((product) => (
-                            <Link key={product.id} href={`/products/${cat.slug}/${product.slug}`} className="block text-xs leading-5 text-white/58 hover:text-[#B8C63B]">
-                              {product.title}
-                            </Link>
-                          )) : (
-                            <span className="text-xs leading-5 text-white/38">Coming soon</span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+              <div className="absolute left-0 top-full pt-3 w-56">
+                <div className="bg-[#080c05] border border-white/10 border-t-2 border-t-[#B8C63B] shadow-2xl py-2">
+                  <Link href="/products"
+                    className="block px-5 py-2.5 text-xs font-black uppercase tracking-widest text-[#F5C518] border-b border-white/10 hover:bg-white/5 transition-colors">
+                    All Products
+                  </Link>
+                  {categories.map((cat) => (
+                    <Link key={cat.id} href={`/products/${cat.slug}`}
+                      className="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+                      {cat.title}
+                    </Link>
+                  ))}
                 </div>
               </div>
             )}
           </div>
-          <Link href="/blog" className={navLinkClass('/blog')}>Blog</Link>
-          <Link href="/contact" className="rounded-full bg-[#B8C63B] px-8 py-4 text-[13px] font-extrabold uppercase text-[#172006] transition hover:bg-[#F5C518] hover:shadow-lg">Get in touch</Link>
+
+          {navLink('/blog', 'Blog')}
+
+          <Link href="/contact"
+            className="border-2 border-[#B8C63B] px-5 py-2.5 text-[12px] font-black uppercase tracking-widest text-white hover:bg-[#B8C63B] hover:text-[#102006] transition-all duration-200 whitespace-nowrap">
+            Get In Touch
+          </Link>
         </div>
+
+        {/* Hamburger */}
         <button
           type="button"
-          className="md:hidden flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-white/25 text-white"
+          className="md:hidden flex h-11 w-11 flex-col items-center justify-center gap-[5px] bg-white/10"
           aria-label="Toggle navigation"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((open) => !open)}
+          onClick={() => setMobileOpen((o) => !o)}
         >
-          <span className={`h-0.5 w-5 bg-current transition ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`} />
-          <span className={`h-0.5 w-5 bg-current transition ${mobileOpen ? 'opacity-0' : ''}`} />
-          <span className={`h-0.5 w-5 bg-current transition ${mobileOpen ? '-translate-y-2 -rotate-45' : ''}`} />
+          <span className={`h-[2px] w-6 bg-white transition-all duration-300 origin-center ${mobileOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
+          <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0 scale-x-0' : ''}`} />
+          <span className={`h-[2px] w-6 bg-white transition-all duration-300 origin-center ${mobileOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
         </button>
       </div>
+
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#070b05]/98 px-5 py-5 shadow-2xl">
-          <div className="flex flex-col gap-1">
-            {[
-              ['Home', '/'],
-              ['About', '/about'],
-              ['Products', '/products'],
-              ['Blog', '/blog'],
-              ['Contact', '/contact'],
-            ].map(([label, href]) => (
-              <Link key={href} href={href} className="py-3 text-sm font-semibold uppercase text-white/90" onClick={() => setMobileOpen(false)}>
+        <div className="md:hidden border-t border-white/10 bg-[#070b05] px-5 py-4">
+          <div className="flex flex-col">
+            {[['/', 'Home'], ['/about', 'About'], ['/products', 'All Products'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([href, label]) => (
+              <Link key={href} href={href}
+                className="py-3 text-sm font-bold uppercase text-white/85 border-b border-white/8 hover:text-[#F5C518] transition-colors"
+                onClick={() => setMobileOpen(false)}>
                 {label}
               </Link>
             ))}
           </div>
-          <div className="mt-3 grid grid-cols-1 gap-1 border-t border-white/10 pt-3">
+          <div className="mt-3 flex flex-col">
+            <p className="text-[10px] font-black uppercase tracking-widest text-[#F5C518] py-3">Categories</p>
             {categories.map((cat) => (
-              <Link key={cat.id} href={`/products/${cat.slug}`} className="py-2 text-sm text-white/65" onClick={() => setMobileOpen(false)}>
+              <Link key={cat.id} href={`/products/${cat.slug}`}
+                className="py-2.5 text-sm text-white/55 border-b border-white/5 hover:text-white transition-colors"
+                onClick={() => setMobileOpen(false)}>
                 {cat.title}
               </Link>
             ))}
           </div>
+          <Link href="/contact"
+            className="mt-5 block text-center bg-[#B8C63B] text-[#102006] py-3 font-black text-sm uppercase tracking-widest"
+            onClick={() => setMobileOpen(false)}>
+            Get In Touch
+          </Link>
         </div>
       )}
     </nav>

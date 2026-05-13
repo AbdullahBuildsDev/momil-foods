@@ -1,27 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
-
-const posts = [
-  {
-    tag: 'Export',
-    title: 'How Pakistani Food Exporters Are Reaching New Markets in 2025',
-    excerpt: 'From USA to Vietnam, demand for halal-certified and naturally sourced Pakistani food products is rising fast. Here is what buyers are looking for.',
-    date: 'May 2025',
-  },
-  {
-    tag: 'Products',
-    title: 'Why Natural Honey From Pakistan Is in High Demand Globally',
-    excerpt: 'Pure, raw, and unfiltered — Pakistani honey varieties are gaining strong traction in Middle Eastern and European markets.',
-    date: 'April 2025',
-  },
-  {
-    tag: 'Private Label',
-    title: 'Starting Your Own Food Brand Without a Factory',
-    excerpt: 'One-window co-packing and private label services are making it easier than ever for new food brands to launch without heavy infrastructure investment.',
-    date: 'March 2025',
-  },
-]
+import { blogPosts as posts } from '@/lib/blogData'
 
 export default function Blog() {
   return (
@@ -53,7 +33,7 @@ export default function Blog() {
                   </div>
                   <h2 style={{ fontSize: 'clamp(18px,2.5vw,24px)', fontWeight: 900, color: '#2D5016', lineHeight: 1.3, marginBottom: '14px' }}>{post.title}</h2>
                   <p style={{ fontSize: '15px', lineHeight: 1.85, color: '#666' }}>{post.excerpt}</p>
-                  <Link href="/contact" style={{
+                  <Link href={`/blog/${post.slug}`} style={{
                     display: 'inline-flex', marginTop: '24px', borderBottom: '2px solid #B8C63B',
                     paddingBottom: '2px', fontSize: '12px', fontWeight: 900,
                     letterSpacing: '0.15em', textTransform: 'uppercase', color: '#2D5016', textDecoration: 'none',
