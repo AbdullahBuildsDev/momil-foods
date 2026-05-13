@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --green-dark: #2D5016;
+  --green-mid: #4A8B1F;
+  --green-light: #7DC232;
+  --yellow-gold: #F5C518;
+  --yellow-light: #FDE68A;
+  --amber: #D97706;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  background: #faf7ec;
+  color: #102006;
+}
+
+.site-container {
+  width: min(100% - 40px, 1280px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    width: min(100% - 96px, 1280px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .site-container {
+    width: min(100% - 320px, 1360px);
+  }
+}
+
+.momil-footer {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(245, 197, 24, 0.22), transparent 28%),
+    radial-gradient(circle at 82% 16%, rgba(217, 119, 6, 0.16), transparent 26%),
+    linear-gradient(135deg, #030402 0%, #0b1007 45%, #1d1607 100%);
+}
+
+.commitment-text {
+  background:
+    linear-gradient(105deg, rgba(245, 197, 24, 0.98), rgba(74, 139, 31, 0.98) 42%, rgba(16, 32, 6, 0.96) 72%, rgba(217, 119, 6, 0.92)),
+    url('/products/spices.jpg');
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
