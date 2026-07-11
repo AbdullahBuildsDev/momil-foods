@@ -68,7 +68,7 @@ export default function About() {
       <section style={{ position: 'relative', overflow: 'hidden', background: '#fff', padding: '96px 0' }}>
         <div style={{
           position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 'clamp(80px,16vw,260px)', fontWeight: 900, color: 'rgba(245,197,24,0.07)',
+          fontSize: 'clamp(80px,16vw,260px)', fontWeight: 900, color: 'rgba(232,180,0,0.13)',
           pointerEvents: 'none', userSelect: 'none', lineHeight: 1,
         }}>MOMIL</div>
         <div className="site-container" style={{ position: 'relative', display: 'grid', gap: '48px', alignItems: 'start', gridTemplateColumns: '1fr' }}>

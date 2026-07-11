@@ -30,13 +30,6 @@ const categoryImages = {
   honey:               IMG.honey,
 }
 
-const responsibilityCards = [
-  ['Buyer Support',    'One-window sourcing, product development and packing support for growing food brands.',                       IMG.fruits],
-  ['Export Readiness', 'Practical help for bulk supply, co-packing, packaging design and documentation needs.',                       IMG.spices],
-  ['Quality Focus',    'Selected products packed with consistency for local, retail, food service and export buyers.',                 IMG.mangoes],
-  ['Market Trust',     'Long-term service built around dependable response, fair dealing and repeatable standards.',                   IMG.nuts],
-]
-
 const showcaseProducts = [
   { title: 'Fruit Juices', image: IMG.fruits,   href: '/products/drinks-and-juices' },
   { title: 'Dry Fruits',   image: IMG.nuts,     href: '/products/bulk-dry-fruits-nuts' },
@@ -105,58 +98,43 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section style={{ background: '#fff', padding: '96px 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{
-          position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 'clamp(100px,18vw,280px)', fontWeight: 900, color: 'rgba(245,197,24,0.07)',
-          pointerEvents: 'none', userSelect: 'none', lineHeight: 1,
-        }}>MOMIL</div>
-        <div className="site-container" style={{ position: 'relative', display: 'grid', gap: '56px', alignItems: 'center', gridTemplateColumns: '1fr' }}>
-          <div style={{ textAlign: 'center' }}>
-            <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Our Story</p>
-            <h3 style={{ marginTop: '14px', fontSize: 'clamp(26px,3.5vw,42px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
-              <b>About</b> Momil Foods
-            </h3>
-            <Link href="/about" style={{
-              display: 'inline-flex', marginTop: '32px', border: '2px solid #E8B400',
-              padding: '14px 36px', fontSize: '12px', fontWeight: 800,
-              letterSpacing: '0.18em', textTransform: 'uppercase', color: '#3b3b3b', textDecoration: 'none',
-            }}>More About</Link>
-          </div>
-          <div style={{ position: 'relative', minHeight: '360px' }}>
-            <div style={{ position: 'absolute', top: 20, left: 20, right: 20, bottom: 20, border: '8px solid #E8B400' }} />
-            <Image src={IMG.mangoes} alt="Momil Foods" fill sizes="(max-width:1024px) 100vw, 34vw" style={{ objectFit: 'cover' }} />
-          </div>
-          <div style={{ fontSize: '16px', lineHeight: 2, color: '#646464' }}>
-            <p>Momil Foods Pvt. Ltd. believes in quality food products, built on four pillars: quality, innovation, service and trust. With 13 years of product-development experience, we help local and global buyers develop brands without investing in factory and production infrastructure.</p>
-            <p style={{ marginTop: '24px' }}>Our range includes fruit juices in PET and aseptic packaging, dry fruits, fried onion, honey, sweets, local snacks and branded items, supported through one-window sourcing, packing and export service.</p>
-          </div>
-        </div>
-        <style>{`@media(min-width:1024px){.about-inner{grid-template-columns:0.8fr 1fr 1fr!important}.about-heading{text-align:left!important}}`}</style>
-      </section>
+      <section style={{ background: '#fff', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+        {/* Animated watermark */}
+        <div className="about-watermark" style={{
+          position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+          fontSize: 'clamp(72px,15vw,240px)', fontWeight: 900, color: 'rgba(232,180,0,0.11)',
+          pointerEvents: 'none', userSelect: 'none', lineHeight: 1, whiteSpace: 'nowrap', textTransform: 'uppercase',
+        }}>MOMIL FOODS</div>
 
-      {/* ── SOCIAL RESPONSIBILITY ── */}
-      <section style={{ background: '#f8f5ec', padding: '96px 0' }}>
-        <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Corporate</p>
-          <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
-            <b>Social</b> Responsibility
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '20px', marginTop: '56px' }} className="resp-grid">
-            {responsibilityCards.map(([title, text, image]) => (
-              <article key={title} style={{ background: '#fff', textAlign: 'left', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-                <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
-                  <Image src={image} alt="" fill sizes="(max-width:1024px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
-                </div>
-                <div style={{ padding: '24px 28px' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: 900, color: '#2D5016' }}>{title}</h4>
-                  <p style={{ marginTop: '10px', fontSize: '14px', lineHeight: 1.85, color: '#666' }}>{text}</p>
-                </div>
-              </article>
-            ))}
+        <div className="site-container" style={{ position: 'relative' }}>
+          <div className="about-home-grid" style={{ display: 'grid', gap: '40px', alignItems: 'center', gridTemplateColumns: '1fr' }}>
+            <div>
+              <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Our Story</p>
+              <h3 style={{ marginTop: '16px', fontSize: 'clamp(28px,4vw,48px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.15 }}>
+                <b>About</b> Momil Foods
+              </h3>
+              <Link href="/about" style={{
+                display: 'inline-flex', marginTop: '32px', border: '2px solid #E8B400',
+                padding: '15px 40px', fontSize: '13px', fontWeight: 800,
+                letterSpacing: '0.18em', textTransform: 'uppercase', color: '#3b3b3b', textDecoration: 'none',
+              }}>More About</Link>
+            </div>
+            <div style={{ fontSize: '16px', lineHeight: 2, color: '#646464' }}>
+              <p>Momil Foods Pvt. Ltd. believes in quality food products, built on four pillars: quality, innovation, service and trust. With 13 years of product-development experience, we help local and global buyers develop brands without investing in factory and production infrastructure.</p>
+              <p style={{ marginTop: '24px' }}>Our range includes fruit juices in PET and aseptic packaging, dry fruits, fried onion, honey, sweets, local snacks and branded items, supported through one-window sourcing, packing and export service.</p>
+            </div>
           </div>
         </div>
-        <style>{`@media(min-width:1024px){.resp-grid{grid-template-columns:repeat(4,1fr)!important}}@media(max-width:480px){.resp-grid{grid-template-columns:1fr!important}}`}</style>
+
+        <style>{`
+          @keyframes momilDrift {
+            0%   { transform: translate(-50%,-50%) translateX(-2.5%); }
+            50%  { transform: translate(-50%,-50%) translateX(2.5%); }
+            100% { transform: translate(-50%,-50%) translateX(-2.5%); }
+          }
+          .about-watermark { animation: momilDrift 16s ease-in-out infinite; }
+          @media(min-width:1024px){ .about-home-grid { grid-template-columns: 0.9fr 1.1fr !important; } }
+        `}</style>
       </section>
 
       {/* ── OUR PRODUCTS ── */}
