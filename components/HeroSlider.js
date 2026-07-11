@@ -88,7 +88,7 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       {/* Dot nav */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3">
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3">
         {slides.map((_, i) => (
           <button key={i} onClick={() => setCurrent(i)}
             className={`rounded-full transition-all ${i === current ? 'bg-[#F5C518] w-3 h-8' : 'bg-white/50 w-3 h-3'}`} />
