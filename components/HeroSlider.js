@@ -9,7 +9,7 @@ const slides = [
     id: '1',
     title: 'Momil Foods',
     subtitle: 'Quality food and beverages exporter',
-    image: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1920&q=80',
     href: '/products',
   },
   {
