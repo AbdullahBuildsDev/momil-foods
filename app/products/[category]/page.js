@@ -36,11 +36,11 @@ export default async function CategoryPage({ params }) {
         }}>{category?.title || 'Products'}</div>
         <div className="site-container" style={{ position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '20px' }}>
-            <Link href="/" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
-            <Link href="/products" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Products</Link>
-            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
-            <span style={{ fontSize: '12px', color: '#E8B400', fontWeight: 700 }}>{category?.title}</span>
+            <Link href="/" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
+            <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
+            <Link href="/products" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Products</Link>
+            <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
+            <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>{category?.title}</span>
           </div>
           <h1 style={{
             fontSize: 'clamp(36px,6vw,72px)',
@@ -49,7 +49,7 @@ export default async function CategoryPage({ params }) {
             letterSpacing: '0.04em',
             lineHeight: 1,
           }}>{category?.title || 'Products'}</h1>
-          <p style={{ marginTop: '16px', fontSize: '15px', color: 'rgba(255,255,255,0.5)', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p style={{ marginTop: '16px', fontSize: '16px', color: 'rgba(255,255,255,0.5)', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
             {category?.description}
           </p>
         </div>
@@ -59,13 +59,13 @@ export default async function CategoryPage({ params }) {
       <div className="md:hidden" style={{ background: '#fff', borderBottom: '1px solid #eadfae', padding: '16px', overflowX: 'auto' }}>
         <div style={{ display: 'flex', gap: '8px', whiteSpace: 'nowrap' }}>
           <Link href="/products" style={{
-            display: 'inline-block', padding: '8px 16px', fontSize: '11px', fontWeight: 800,
+            display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 800,
             textTransform: 'uppercase', border: '1px solid #eadfae', borderRadius: '999px',
             color: '#2D5016', textDecoration: 'none',
           }}>All</Link>
           {categories.map((cat) => (
             <Link key={cat.id} href={`/products/${cat.slug}`} style={{
-              display: 'inline-block', padding: '8px 16px', fontSize: '11px', fontWeight: 600,
+              display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 600,
               textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
               background: cat.slug === categorySlug ? '#2D5016' : 'transparent',
               color: cat.slug === categorySlug ? '#fff' : '#2D5016',
@@ -88,13 +88,13 @@ export default async function CategoryPage({ params }) {
               background: '#fff', padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
               border: '1px solid #eadfae',
             }}>
-              <h3 style={{ fontWeight: 900, color: '#2D5016', fontSize: '15px', borderBottom: '2px solid #E8B400', paddingBottom: '12px', marginBottom: '16px' }}>Browse by</h3>
-              <Link href="/products" style={{ display: 'block', padding: '10px 0', fontSize: '13px', color: '#999', textDecoration: 'none', borderBottom: '1px solid #f0ead8' }}>
+              <h3 style={{ fontWeight: 900, color: '#2D5016', fontSize: '16px', borderBottom: '2px solid #E8B400', paddingBottom: '12px', marginBottom: '16px' }}>Browse by</h3>
+              <Link href="/products" style={{ display: 'block', padding: '10px 0', fontSize: '14px', color: '#999', textDecoration: 'none', borderBottom: '1px solid #f0ead8' }}>
                 All products
               </Link>
               {categories.map((cat) => (
                 <Link key={cat.id} href={`/products/${cat.slug}`} style={{
-                  display: 'block', padding: '10px 0', fontSize: '13px', textDecoration: 'none',
+                  display: 'block', padding: '10px 0', fontSize: '14px', textDecoration: 'none',
                   borderBottom: '1px solid #f0ead8',
                   color: cat.slug === categorySlug ? '#2D5016' : '#888',
                   fontWeight: cat.slug === categorySlug ? 800 : 400,
@@ -108,13 +108,13 @@ export default async function CategoryPage({ params }) {
           {/* Products Grid */}
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <p style={{ fontSize: '13px', color: '#999' }}>{products.length} product{products.length !== 1 ? 's' : ''}</p>
+              <p style={{ fontSize: '14px', color: '#999' }}>{products.length} product{products.length !== 1 ? 's' : ''}</p>
             </div>
 
             {products.length === 0 ? (
               <div style={{ background: '#fff', border: '1px solid #eadfae', padding: '60px 20px', textAlign: 'center' }}>
                 <p style={{ color: '#bbb', fontSize: '16px' }}>No products yet in this category.</p>
-                <Link href="/products" style={{ display: 'inline-block', marginTop: '16px', fontSize: '13px', fontWeight: 700, color: '#2D5016', textDecoration: 'underline' }}>Browse all products</Link>
+                <Link href="/products" style={{ display: 'inline-block', marginTop: '16px', fontSize: '14px', fontWeight: 700, color: '#2D5016', textDecoration: 'underline' }}>Browse all products</Link>
               </div>
             ) : (
               <div className="prod-cat-grid" style={{ display: 'grid', gap: '24px' }}>
@@ -134,16 +134,16 @@ export default async function CategoryPage({ params }) {
                             background: 'linear-gradient(135deg, #102006, #2D5016, #D97706)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             padding: '16px', textAlign: 'center', color: '#E8B400',
-                            fontSize: '13px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',
+                            fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',
                           }}>{category?.title || 'Product'}</div>
                       }
                     </div>
                     <div style={{ padding: '20px 20px 24px', borderTop: '1px solid #f0ead8' }}>
-                      <h3 style={{ fontWeight: 800, color: '#2D5016', fontSize: '15px', lineHeight: 1.3 }}>{p.title}</h3>
+                      <h3 style={{ fontWeight: 800, color: '#2D5016', fontSize: '16px', lineHeight: 1.3 }}>{p.title}</h3>
                       <p style={{ fontSize: '12px', color: '#999', marginTop: '6px' }}>{p.weight}</p>
-                      <p style={{ fontSize: '13px', color: '#777', marginTop: '10px', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
+                      <p style={{ fontSize: '14px', color: '#777', marginTop: '10px', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
                       <span style={{
-                        display: 'inline-block', marginTop: '16px', fontSize: '11px', fontWeight: 800,
+                        display: 'inline-block', marginTop: '16px', fontSize: '14px', fontWeight: 800,
                         textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400',
                       }}>View Details →</span>
                     </div>

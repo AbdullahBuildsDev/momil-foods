@@ -34,13 +34,13 @@ export default async function ProductPage({ params }) {
       }}>
         <div className="site-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Link href="/" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
-            <Link href="/products" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Products</Link>
-            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
-            <Link href={`/products/${categorySlug}`} style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>{category?.title}</Link>
-            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
-            <span style={{ fontSize: '12px', color: '#E8B400', fontWeight: 700 }}>{product.title}</span>
+            <Link href="/" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
+            <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
+            <Link href="/products" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Products</Link>
+            <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
+            <Link href={`/products/${categorySlug}`} style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>{category?.title}</Link>
+            <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
+            <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>{product.title}</span>
           </div>
         </div>
       </section>
@@ -71,27 +71,27 @@ export default async function ProductPage({ params }) {
               <div style={{ display: 'flex', gap: '24px', marginTop: '24px', paddingBottom: '24px', borderBottom: '1px solid #f0ead8' }}>
                 {product.weight && (
                   <div>
-                    <p style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#bbb', marginBottom: '4px' }}>Weight</p>
-                    <p style={{ fontSize: '15px', fontWeight: 700, color: '#333' }}>{product.weight}</p>
+                    <p style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#bbb', marginBottom: '4px' }}>Weight</p>
+                    <p style={{ fontSize: '16px', fontWeight: 700, color: '#333' }}>{product.weight}</p>
                   </div>
                 )}
                 {product.origin && (
                   <div>
-                    <p style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#bbb', marginBottom: '4px' }}>Origin</p>
-                    <p style={{ fontSize: '15px', fontWeight: 700, color: '#333' }}>{product.origin}</p>
+                    <p style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#bbb', marginBottom: '4px' }}>Origin</p>
+                    <p style={{ fontSize: '16px', fontWeight: 700, color: '#333' }}>{product.origin}</p>
                   </div>
                 )}
               </div>
 
               {product.description && (
-                <p style={{ marginTop: '24px', fontSize: '15px', lineHeight: 1.9, color: '#666' }}>{product.description}</p>
+                <p style={{ marginTop: '24px', fontSize: '16px', lineHeight: 1.9, color: '#666' }}>{product.description}</p>
               )}
 
               <div style={{ display: 'flex', gap: '16px', marginTop: '36px', flexWrap: 'wrap' }}>
                 <Link href="/contact" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   background: '#E8B400', color: '#102006', padding: '16px 36px',
-                  fontSize: '13px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',
+                  fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',
                   textDecoration: 'none', transition: 'all 0.2s',
                 }}>
                   Enquire Now
@@ -99,7 +99,7 @@ export default async function ProductPage({ params }) {
                 <a href="https://wa.me/923452211111" target="_blank" rel="noopener noreferrer" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   border: '2px solid #2D5016', color: '#2D5016', padding: '14px 28px',
-                  fontSize: '13px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.1em',
+                  fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.1em',
                   textDecoration: 'none',
                 }}>
                   WhatsApp
@@ -112,7 +112,7 @@ export default async function ProductPage({ params }) {
           {/* Related Products */}
           {relatedProducts.length > 0 && (
             <div style={{ marginTop: '72px' }}>
-              <h3 style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#E8B400', marginBottom: '12px' }}>More from {category?.title}</h3>
+              <h3 style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#E8B400', marginBottom: '12px' }}>More from {category?.title}</h3>
               <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', marginBottom: '32px' }}>
                 <b>Related</b> Products
               </h2>
@@ -135,7 +135,7 @@ export default async function ProductPage({ params }) {
                     </div>
                     <div style={{ padding: '16px 18px 20px' }}>
                       <h4 style={{ fontWeight: 800, color: '#2D5016', fontSize: '14px' }}>{p.title}</h4>
-                      <p style={{ fontSize: '11px', color: '#999', marginTop: '4px' }}>{p.weight}</p>
+                      <p style={{ fontSize: '14px', color: '#999', marginTop: '4px' }}>{p.weight}</p>
                     </div>
                   </Link>
                 ))}

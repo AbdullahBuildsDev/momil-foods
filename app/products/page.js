@@ -9,7 +9,7 @@ export default function Products() {
     <main className="min-h-screen flex flex-col">
       <Navbar />
       <div style={{ background: '#0d1308', paddingTop: '140px', paddingBottom: '64px', textAlign: 'center', color: '#fff' }}>
-        <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '14px' }}>Momil Foods</p>
+        <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '14px' }}>Momil Foods</p>
         <h1 style={{ fontSize: 'clamp(36px,6vw,64px)', fontWeight: 900, textTransform: 'uppercase' }}>Our Products</h1>
       </div>
       <div className="md:hidden bg-white border-b border-[#eadfae] px-4 py-3 overflow-x-auto">

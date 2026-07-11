@@ -61,7 +61,7 @@ export default function Home() {
       {/* ── SPECIAL PRODUCTS ── */}
       <section style={{ background: '#ffffff', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Special Products</p>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Special Products</p>
           <h2 style={{ marginTop: '12px', fontSize: 'clamp(30px,4vw,46px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
             <b>Special</b> Products
           </h2>
@@ -79,7 +79,7 @@ export default function Home() {
                 <span style={{ position: 'relative', width: '88px', height: '88px', display: 'block', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eef0d5' }}>
                   <Image src={item.image} alt={item.title} fill sizes="88px" style={{ objectFit: 'cover' }} />
                 </span>
-                <span style={{ fontWeight: 800, fontSize: '13px', color: '#333', textAlign: 'center', lineHeight: 1.3 }}>{item.title}</span>
+                <span style={{ fontWeight: 800, fontSize: '14px', color: '#333', textAlign: 'center', lineHeight: 1.3 }}>{item.title}</span>
               </Link>
             ))}
           </div>
@@ -113,7 +113,7 @@ export default function Home() {
         }}>MOMIL</div>
         <div className="site-container" style={{ position: 'relative', display: 'grid', gap: '56px', alignItems: 'center', gridTemplateColumns: '1fr' }}>
           <div style={{ textAlign: 'center' }}>
-            <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Our Story</p>
+            <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Our Story</p>
             <h3 style={{ marginTop: '14px', fontSize: 'clamp(26px,3.5vw,42px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
               <b>About</b> Momil Foods
             </h3>
@@ -127,7 +127,7 @@ export default function Home() {
             <div style={{ position: 'absolute', top: 20, left: 20, right: 20, bottom: 20, border: '8px solid #E8B400' }} />
             <Image src={IMG.mangoes} alt="Momil Foods" fill sizes="(max-width:1024px) 100vw, 34vw" style={{ objectFit: 'cover' }} />
           </div>
-          <div style={{ fontSize: '15px', lineHeight: 2, color: '#646464' }}>
+          <div style={{ fontSize: '16px', lineHeight: 2, color: '#646464' }}>
             <p>Momil Foods Pvt. Ltd. believes in quality food products, built on four pillars: quality, innovation, service and trust. With 13 years of product-development experience, we help local and global buyers develop brands without investing in factory and production infrastructure.</p>
             <p style={{ marginTop: '24px' }}>Our range includes fruit juices in PET and aseptic packaging, dry fruits, fried onion, honey, sweets, local snacks and branded items, supported through one-window sourcing, packing and export service.</p>
           </div>
@@ -138,7 +138,7 @@ export default function Home() {
       {/* ── SOCIAL RESPONSIBILITY ── */}
       <section style={{ background: '#f8f5ec', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Corporate</p>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Corporate</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
             <b>Social</b> Responsibility
           </h3>
@@ -162,7 +162,7 @@ export default function Home() {
       {/* ── OUR PRODUCTS ── */}
       <section style={{ background: '#ffffff', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>What We Offer</p>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>What We Offer</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
             <b>Our</b> Products
           </h3>
@@ -191,7 +191,7 @@ export default function Home() {
       {/* ── CATEGORIES ── */}
       <section style={{ background: '#faf7ec', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
             <b>Our</b> Categories
           </h3>
@@ -213,7 +213,7 @@ export default function Home() {
                 <div style={{ padding: '20px 16px', textAlign: 'center' }}>
                   <p style={{ fontWeight: 900, color: '#2D5016', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{cat.title}</p>
                   <p style={{ marginTop: '6px', fontSize: '12px', color: '#999', lineHeight: 1.6 }}>{cat.description}</p>
-                  <span style={{ display: 'inline-block', marginTop: '12px', fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400' }}>Explore →</span>
+                  <span style={{ display: 'inline-block', marginTop: '12px', fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400' }}>Explore →</span>
                 </div>
               </Link>
             ))}
@@ -230,7 +230,7 @@ export default function Home() {
       {/* ── TESTIMONIALS ── */}
       <section style={{ background: '#ffffff', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Client Feedback</p>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Client Feedback</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(22px,3.5vw,38px)', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', lineHeight: 1.2 }}>
             People Say About Momil Foods
           </h3>
@@ -241,8 +241,8 @@ export default function Home() {
                 padding: '36px 28px', textAlign: 'center',
                 display: 'flex', flexDirection: 'column', gap: '20px',
               }}>
-                <p style={{ fontSize: '15px', lineHeight: 1.9, color: '#555' }}>&ldquo;{quote}&rdquo;</p>
-                <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D97706' }}>{name}</p>
+                <p style={{ fontSize: '16px', lineHeight: 1.9, color: '#555' }}>&ldquo;{quote}&rdquo;</p>
+                <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D97706' }}>{name}</p>
               </article>
             ))}
           </div>
@@ -261,7 +261,7 @@ export default function Home() {
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
               }}>
                 <div style={{ width: '28px', height: '3px', background: '#E8B400' }} />
-                <span style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D5016' }}>{item}</span>
+                <span style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D5016' }}>{item}</span>
               </div>
             ))}
           </div>

@@ -33,7 +33,7 @@ export default function Contact() {
       <section style={{ background: '#0d1308', paddingTop: '140px', paddingBottom: '80px', color: '#fff', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 50%, rgba(245,197,24,0.12), transparent 55%)' }} />
         <div className="site-container" style={{ position: 'relative' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '16px' }}>Momil Foods</p>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '16px' }}>Momil Foods</p>
           <h1 style={{ fontSize: 'clamp(36px,6vw,64px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.05 }}>Get In Touch</h1>
           <p style={{ marginTop: '18px', fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '480px', margin: '18px auto 0', lineHeight: 1.8 }}>
             Ready to source quality food products? We respond within 24 hours.
@@ -64,9 +64,9 @@ export default function Contact() {
         <div className="site-container" style={{ maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto' }}>
 
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706', marginBottom: '14px' }}>Send an Enquiry</p>
+            <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706', marginBottom: '14px' }}>Send an Enquiry</p>
             <h2 style={{ fontSize: 'clamp(26px,4vw,38px)', fontWeight: 900, color: '#0f2205' }}>Tell Us What You Need</h2>
-            <p style={{ marginTop: '12px', color: '#888', lineHeight: 1.8, fontSize: '15px' }}>
+            <p style={{ marginTop: '12px', color: '#888', lineHeight: 1.8, fontSize: '16px' }}>
               Whether it&apos;s bulk sourcing, private labeling, or a custom product — we are here to help.
             </p>
           </div>
@@ -79,41 +79,41 @@ export default function Contact() {
                 </svg>
               </div>
               <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#0f2205', marginBottom: '10px' }}>Message Received!</h3>
-              <p style={{ color: '#888', fontSize: '15px' }}>We will get back to you within 24 hours.</p>
+              <p style={{ color: '#888', fontSize: '16px' }}>We will get back to you within 24 hours.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ background: '#fff', border: '1px solid #e6d8a4', padding: '48px 40px', display: 'flex', flexDirection: 'column', gap: '20px' }} className="contact-form">
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-row">
                 <div>
-                  <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Full Name *</label>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Full Name *</label>
                   <input required type="text" name="name" placeholder="John Smith"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Email Address *</label>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Email Address *</label>
                   <input required type="email" name="email" placeholder="john@company.com"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-row">
                 <div>
-                  <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Company Name</label>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Company Name</label>
                   <input type="text" name="company" placeholder="Your Company"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Country</label>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Country</label>
                   <input type="text" name="country" placeholder="United States"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Your Enquiry *</label>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Your Enquiry *</label>
                 <textarea required rows={5} name="message" placeholder="Tell us about the products you are looking for, quantities, packaging requirements..."
                   style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none', resize: 'none' }} />
               </div>
               <button type="submit" disabled={loading}
-                style={{ background: '#2D5016', color: '#fff', padding: '16px', fontWeight: 900, fontSize: '13px', letterSpacing: '0.18em', textTransform: 'uppercase', border: 'none', cursor: 'pointer', opacity: loading ? 0.7 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                style={{ background: '#2D5016', color: '#fff', padding: '16px', fontWeight: 900, fontSize: '14px', letterSpacing: '0.18em', textTransform: 'uppercase', border: 'none', cursor: 'pointer', opacity: loading ? 0.7 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                 {loading ? 'Sending...' : 'Send Enquiry →'}
               </button>
               <p style={{ textAlign: 'center', fontSize: '12px', color: '#bbb' }}>We respond within 24 hours · All enquiries are confidential</p>
