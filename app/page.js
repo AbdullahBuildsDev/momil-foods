@@ -30,15 +30,6 @@ const categoryImages = {
   honey:               IMG.honey,
 }
 
-const showcaseProducts = [
-  { title: 'Fruit Juices', image: IMG.fruits,   href: '/products/drinks-and-juices' },
-  { title: 'Dry Fruits',   image: IMG.nuts,     href: '/products/bulk-dry-fruits-nuts' },
-  { title: 'Spices',       image: IMG.spices,   href: '/products/spices' },
-  { title: 'Mangoes',      image: IMG.mangoes,  href: '/products/drinks-and-juices' },
-  { title: 'Honey',        image: IMG.honey,    href: '/products/honey' },
-  { title: 'Dates',        image: IMG.dates,    href: '/products/bulk-dry-fruits-nuts' },
-]
-
 const testimonials = [
   ['Momil Foods helped us source practical, export-ready food products with quick communication and clear support.', 'Buyer, Middle East'],
   ['The team understands private label needs and gives dependable help from product selection to packing direction.', 'Retail Partner'],
@@ -135,35 +126,6 @@ export default function Home() {
           .about-watermark { animation: momilDrift 16s ease-in-out infinite; }
           @media(min-width:1024px){ .about-home-grid { grid-template-columns: 0.9fr 1.1fr !important; } }
         `}</style>
-      </section>
-
-      {/* ── OUR PRODUCTS ── */}
-      <section style={{ background: '#ffffff', padding: '96px 0' }}>
-        <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>What We Offer</p>
-          <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
-            <b>Our</b> Products
-          </h3>
-          <p style={{ marginTop: '20px', maxWidth: '580px', margin: '20px auto 0', fontSize: '16px', lineHeight: 1.85, color: '#666' }}>
-            Momil Foods provides selected food and beverage products with a focus on dependable quality, practical packing and buyer-ready support from Lahore, Pakistan.
-          </p>
-          <Link href="/products" style={{
-            display: 'inline-flex', marginTop: '28px', border: '2px solid #E8B400',
-            padding: '14px 36px', fontSize: '12px', fontWeight: 900,
-            letterSpacing: '0.2em', textTransform: 'uppercase', color: '#2D5016', textDecoration: 'none',
-          }}>All Products</Link>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px', marginTop: '48px', maxWidth: '980px', marginLeft: 'auto', marginRight: 'auto' }} className="prod-grid">
-            {showcaseProducts.map((item) => (
-              <Link key={item.title} href={item.href}
-                style={{ position: 'relative', minHeight: '200px', overflow: 'hidden', background: '#102006', display: 'block', textDecoration: 'none' }}>
-                <Image src={item.image} alt={item.title} fill sizes="(max-width:768px) 50vw, 33vw" style={{ objectFit: 'cover', opacity: 0.8 }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%)' }} />
-                <h4 style={{ position: 'absolute', bottom: '18px', left: '18px', right: '18px', color: '#fff', fontWeight: 900, fontSize: '14px', textTransform: 'uppercase' }}>{item.title}</h4>
-              </Link>
-            ))}
-          </div>
-        </div>
-        <style>{`@media(max-width:640px){.prod-grid{grid-template-columns:repeat(2,1fr)!important}}`}</style>
       </section>
 
       {/* ── CATEGORIES ── */}
