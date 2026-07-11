@@ -13,7 +13,7 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <Image src="/logo.svg" alt="Momil Foods" width={160} height={80} className="h-14 w-auto mb-5" />
+          <Image src="/logo.png" alt="Momil Foods" width={160} height={80} className="h-16 w-auto mb-5" />
           <p className="text-sm leading-7 text-white/60 max-w-xs">
             Momil Foods Pvt. Ltd. has established its legacy over 13 years and continues to grow as a leading food export brand from Pakistan.
           </p>

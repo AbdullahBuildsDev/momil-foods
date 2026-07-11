@@ -25,7 +25,7 @@ export default function Blog() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '24px' }} className="blog-grid">
             {posts.map((post) => (
               <article key={post.title} style={{ background: '#fff', border: '1px solid #e6d8a4', overflow: 'hidden' }}>
-                <div style={{ height: '6px', background: 'linear-gradient(90deg,#2D5016,#B8C63B,#F5C518)' }} />
+                <div style={{ height: '6px', background: 'linear-gradient(90deg,#2D5016,#E8B400,#F5C518)' }} />
                 <div style={{ padding: '36px 40px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                     <span style={{ fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D97706', border: '1px solid #D97706', padding: '4px 10px' }}>{post.tag}</span>
@@ -34,7 +34,7 @@ export default function Blog() {
                   <h2 style={{ fontSize: 'clamp(18px,2.5vw,24px)', fontWeight: 900, color: '#2D5016', lineHeight: 1.3, marginBottom: '14px' }}>{post.title}</h2>
                   <p style={{ fontSize: '15px', lineHeight: 1.85, color: '#666' }}>{post.excerpt}</p>
                   <Link href={`/blog/${post.slug}`} style={{
-                    display: 'inline-flex', marginTop: '24px', borderBottom: '2px solid #B8C63B',
+                    display: 'inline-flex', marginTop: '24px', borderBottom: '2px solid #E8B400',
                     paddingBottom: '2px', fontSize: '12px', fontWeight: 900,
                     letterSpacing: '0.15em', textTransform: 'uppercase', color: '#2D5016', textDecoration: 'none',
                   }}>Read More</Link>

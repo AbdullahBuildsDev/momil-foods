@@ -10,9 +10,19 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault()
     setLoading(true)
-    await new Promise(r => setTimeout(r, 1200))
+    const formData = new FormData(e.target)
+    const data = Object.fromEntries(formData)
+    data.access_key = '385c757a-19f0-4d1f-a43d-916d54f57a4a'
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      const json = await res.json()
+      if (json.success) setSubmitted(true)
+    } catch {}
     setLoading(false)
-    setSubmitted(true)
   }
 
   return (
@@ -63,7 +73,7 @@ export default function Contact() {
 
           {submitted ? (
             <div style={{ textAlign: 'center', padding: '60px 40px', background: '#fff', border: '1px solid #e6d8a4' }}>
-              <div style={{ width: '56px', height: '56px', background: '#B8C63B', borderRadius: '50%', display: 'grid', placeItems: 'center', margin: '0 auto 24px' }}>
+              <div style={{ width: '56px', height: '56px', background: '#E8B400', borderRadius: '50%', display: 'grid', placeItems: 'center', margin: '0 auto 24px' }}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#fff" style={{ width: 26, height: 26 }}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
@@ -76,30 +86,30 @@ export default function Contact() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-row">
                 <div>
                   <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Full Name *</label>
-                  <input required type="text" placeholder="John Smith"
+                  <input required type="text" name="name" placeholder="John Smith"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Email Address *</label>
-                  <input required type="email" placeholder="john@company.com"
+                  <input required type="email" name="email" placeholder="john@company.com"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-row">
                 <div>
                   <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Company Name</label>
-                  <input type="text" placeholder="Your Company"
+                  <input type="text" name="company" placeholder="Your Company"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Country</label>
-                  <input type="text" placeholder="United States"
+                  <input type="text" name="country" placeholder="United States"
                     style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none' }} />
                 </div>
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Your Enquiry *</label>
-                <textarea required rows={5} placeholder="Tell us about the products you are looking for, quantities, packaging requirements..."
+                <textarea required rows={5} name="message" placeholder="Tell us about the products you are looking for, quantities, packaging requirements..."
                   style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none', resize: 'none' }} />
               </div>
               <button type="submit" disabled={loading}

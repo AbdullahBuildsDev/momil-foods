@@ -16,12 +16,12 @@ const IMG = {
 }
 
 const specialProducts = [
-  { title: 'Fruit Juices', href: '/products/drinks-and-juices', image: IMG.fruits },
-  { title: 'Dry Fruits',   href: '/products/bulk-dry-fruits-nuts', image: IMG.nuts },
-  { title: 'Spices',       href: '/products/spices',               image: IMG.spices },
-  { title: 'Honey',        href: '/products/honey',                image: IMG.honey },
-  { title: 'Mangoes',      href: '/products/drinks-and-juices',    image: IMG.mangoes },
-  { title: 'Dates',        href: '/products/bulk-dry-fruits-nuts', image: IMG.dates },
+  { title: 'Juices',              href: '/products/drinks-and-juices',          image: IMG.fruits },
+  { title: 'Himalayan Pink Salt', href: '/products/himalayan-pink-salt',       image: IMG.spices },
+  { title: 'Dry Fruits',          href: '/products/bulk-dry-fruits-nuts',      image: IMG.nuts },
+  { title: 'Saag',                href: '/products/exclusive-products-saag-halwa', image: IMG.mangoes },
+  { title: 'Fried Onion',         href: '/products/fried-onion',               image: IMG.honey },
+  { title: 'Confectionery',       href: '/products/snacks',                    image: IMG.dates },
 ]
 
 const categoryImages = {
@@ -118,13 +118,13 @@ export default function Home() {
               <b>About</b> Momil Foods
             </h3>
             <Link href="/about" style={{
-              display: 'inline-flex', marginTop: '32px', border: '2px solid #B8C63B',
+              display: 'inline-flex', marginTop: '32px', border: '2px solid #E8B400',
               padding: '14px 36px', fontSize: '12px', fontWeight: 800,
               letterSpacing: '0.18em', textTransform: 'uppercase', color: '#3b3b3b', textDecoration: 'none',
             }}>More About</Link>
           </div>
           <div style={{ position: 'relative', minHeight: '360px' }}>
-            <div style={{ position: 'absolute', top: 20, left: 20, right: 20, bottom: 20, border: '8px solid #B8C63B' }} />
+            <div style={{ position: 'absolute', top: 20, left: 20, right: 20, bottom: 20, border: '8px solid #E8B400' }} />
             <Image src={IMG.mangoes} alt="Momil Foods" fill sizes="(max-width:1024px) 100vw, 34vw" style={{ objectFit: 'cover' }} />
           </div>
           <div style={{ fontSize: '15px', lineHeight: 2, color: '#646464' }}>
@@ -170,7 +170,7 @@ export default function Home() {
             Momil Foods provides selected food and beverage products with a focus on dependable quality, practical packing and buyer-ready support from Lahore, Pakistan.
           </p>
           <Link href="/products" style={{
-            display: 'inline-flex', marginTop: '28px', border: '2px solid #B8C63B',
+            display: 'inline-flex', marginTop: '28px', border: '2px solid #E8B400',
             padding: '14px 36px', fontSize: '12px', fontWeight: 900,
             letterSpacing: '0.2em', textTransform: 'uppercase', color: '#2D5016', textDecoration: 'none',
           }}>All Products</Link>
@@ -251,7 +251,7 @@ export default function Home() {
                 padding: '28px 12px', textAlign: 'center',
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
               }}>
-                <div style={{ width: '28px', height: '3px', background: '#B8C63B' }} />
+                <div style={{ width: '28px', height: '3px', background: '#E8B400' }} />
                 <span style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D5016' }}>{item}</span>
               </div>
             ))}

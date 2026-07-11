@@ -3,11 +3,12 @@
 
 :root {
   --green-dark: #2D5016;
-  --green-mid: #4A8B1F;
-  --green-light: #7DC232;
-  --yellow-gold: #F5C518;
-  --yellow-light: #FDE68A;
+  --green-mid: #3A7A12;
+  --green-light: #5BA82E;
+  --yellow-gold: #E8B400;
+  --yellow-light: #F5D44A;
   --amber: #D97706;
+  --orange-sun: #E87B1A;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,8 +39,8 @@ body {
 
 .momil-footer {
   background:
-    radial-gradient(circle at 12% 10%, rgba(245, 197, 24, 0.22), transparent 28%),
-    radial-gradient(circle at 82% 16%, rgba(217, 119, 6, 0.16), transparent 26%),
+    radial-gradient(circle at 12% 10%, rgba(232, 180, 0, 0.2), transparent 28%),
+    radial-gradient(circle at 82% 16%, rgba(232, 123, 26, 0.14), transparent 26%),
     linear-gradient(135deg, #030402 0%, #0b1007 45%, #1d1607 100%);
 }
 

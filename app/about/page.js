@@ -45,7 +45,7 @@ export default function About() {
               Momil Foods Pvt. Ltd. supports local and global buyers with product development, sourcing, co-packing and export-ready food solutions from Lahore, Pakistan.
             </p>
             <Link href="/contact" style={{
-              display: 'inline-flex', marginTop: '36px', background: '#B8C63B',
+              display: 'inline-flex', marginTop: '36px', background: '#E8B400',
               padding: '16px 40px', fontSize: '12px', fontWeight: 900,
               letterSpacing: '0.2em', textTransform: 'uppercase', color: '#102006', textDecoration: 'none',
             }}>Get In Touch</Link>
@@ -97,7 +97,7 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '16px' }} className="pillar-grid">
             {pillars.map(([title, text]) => (
               <div key={title} style={{ background: '#fff', border: '1px solid #e6d8a4', padding: '32px', boxShadow: '0 1px 4px rgba(0,0,0,0.05)' }}>
-                <div style={{ width: '32px', height: '4px', background: '#B8C63B', marginBottom: '16px' }} />
+                <div style={{ width: '32px', height: '4px', background: '#E8B400', marginBottom: '16px' }} />
                 <p style={{ fontSize: '18px', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', marginBottom: '12px' }}>{title}</p>
                 <p style={{ fontSize: '14px', lineHeight: 1.85, color: '#656565' }}>{text}</p>
               </div>
@@ -132,7 +132,7 @@ export default function About() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '0' }} className="svc-grid">
               {services.map((service) => (
                 <div key={service} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px 0', borderBottom: '1px solid #ece2bd' }}>
-                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#B8C63B', flexShrink: 0 }} />
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#E8B400', flexShrink: 0 }} />
                   <span style={{ fontWeight: 600, color: '#3f3f3f', fontSize: '15px' }}>{service}</span>
                 </div>
               ))}
