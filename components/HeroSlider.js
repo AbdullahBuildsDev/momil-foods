@@ -23,14 +23,14 @@ const slides = [
     id: '3',
     title: 'Dry Fruits',
     subtitle: 'Premium selected products',
-    image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=1920&q=80',
     href: '/products/bulk-dry-fruits-nuts',
   },
   {
     id: '4',
     title: 'Natural Honey',
     subtitle: 'Pure. Raw. Unfiltered.',
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1920&q=80',
     href: '/products/honey',
   },
 ]
