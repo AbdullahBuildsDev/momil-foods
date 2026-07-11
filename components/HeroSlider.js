@@ -78,7 +78,7 @@ export default function HeroSlider() {
                 {slides[current].title}
               </motion.h1>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-                <Link href={slides[current].href} className="mt-10 inline-flex border-2 border-[#E8B400] px-14 py-5 text-[14px] font-black tracking-[0.35em] text-[#E8B400] transition hover:bg-[#E8B400] hover:text-[#102006]">
+                <Link href={slides[current].href} className="mt-10 inline-flex items-center justify-center border-2 border-[#E8B400] px-16 py-[18px] pl-[4.75rem] text-[13px] font-black tracking-[0.28em] text-[#E8B400] transition hover:bg-[#E8B400] hover:text-[#102006]">
                   DISCOVER
                 </Link>
               </motion.div>

@@ -74,7 +74,7 @@ export default function Navbar() {
           {navLink('/blog', 'Blog')}
 
           <Link href="/contact"
-            className="border-2 border-[#E8B400] px-8 py-3.5 text-[13px] font-black uppercase tracking-widest text-white hover:bg-[#E8B400] hover:text-[#102006] transition-all duration-200 whitespace-nowrap">
+            className="inline-flex items-center border-2 border-[#E8B400] px-9 py-3 pl-10 text-[12px] font-black uppercase tracking-[0.18em] text-white hover:bg-[#E8B400] hover:text-[#102006] transition-all duration-200 whitespace-nowrap">
             Get In Touch
           </Link>
         </div>

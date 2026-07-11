@@ -16,69 +16,136 @@ export default async function CategoryPage({ params }) {
   const products = getProductsByCategory(categorySlug)
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
 
-      {/* Hero */}
-      <div style={{ background: '#0d1308', paddingTop: '140px', paddingBottom: '64px', textAlign: 'center', color: '#fff' }}>
-        <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '14px' }}>Momil Foods</p>
-        <h1 style={{ fontSize: 'clamp(30px,6vw,64px)', fontWeight: 900, textTransform: 'uppercase' }}>{category?.title || 'Products'}</h1>
-      </div>
+      {/* Hero Banner */}
+      <section style={{
+        background: 'linear-gradient(135deg, #0d1308 0%, #1a2a0f 50%, #0d1308 100%)',
+        paddingTop: '160px',
+        paddingBottom: '80px',
+        textAlign: 'center',
+        color: '#fff',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 'clamp(120px,20vw,320px)', fontWeight: 900, color: 'rgba(232,180,0,0.04)',
+          pointerEvents: 'none', userSelect: 'none', lineHeight: 1, textTransform: 'uppercase',
+        }}>{category?.title || 'Products'}</div>
+        <div className="site-container" style={{ position: 'relative' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '20px' }}>
+            <Link href="/" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Home</Link>
+            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
+            <Link href="/products" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Products</Link>
+            <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>/</span>
+            <span style={{ fontSize: '12px', color: '#E8B400', fontWeight: 700 }}>{category?.title}</span>
+          </div>
+          <h1 style={{
+            fontSize: 'clamp(36px,6vw,72px)',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            lineHeight: 1,
+          }}>{category?.title || 'Products'}</h1>
+          <p style={{ marginTop: '16px', fontSize: '15px', color: 'rgba(255,255,255,0.5)', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
+            {category?.description}
+          </p>
+        </div>
+      </section>
 
-      {/* Mobile category chips */}
-      <div className="md:hidden bg-white border-b border-[#eadfae] px-4 py-3 overflow-x-auto">
-        <div className="flex gap-2 whitespace-nowrap">
-          <Link href="/products" className="inline-block px-4 py-2 text-xs font-black uppercase border border-[#eadfae] rounded-full text-[#2D5016] hover:bg-[#2D5016] hover:text-white transition">All</Link>
+      {/* Category Chips - Mobile */}
+      <div className="md:hidden" style={{ background: '#fff', borderBottom: '1px solid #eadfae', padding: '16px', overflowX: 'auto' }}>
+        <div style={{ display: 'flex', gap: '8px', whiteSpace: 'nowrap' }}>
+          <Link href="/products" style={{
+            display: 'inline-block', padding: '8px 16px', fontSize: '11px', fontWeight: 800,
+            textTransform: 'uppercase', border: '1px solid #eadfae', borderRadius: '999px',
+            color: '#2D5016', textDecoration: 'none',
+          }}>All</Link>
           {categories.map((cat) => (
-            <Link key={cat.id} href={`/products/${cat.slug}`}
-              className={`inline-block px-4 py-2 text-xs font-semibold uppercase rounded-full transition ${
-                cat.slug === categorySlug
-                  ? 'bg-[#2D5016] text-white'
-                  : 'border border-[#eadfae] text-[#2D5016] hover:bg-[#2D5016] hover:text-white'
-              }`}>
+            <Link key={cat.id} href={`/products/${cat.slug}`} style={{
+              display: 'inline-block', padding: '8px 16px', fontSize: '11px', fontWeight: 600,
+              textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
+              background: cat.slug === categorySlug ? '#2D5016' : 'transparent',
+              color: cat.slug === categorySlug ? '#fff' : '#2D5016',
+              border: cat.slug === categorySlug ? '1px solid #2D5016' : '1px solid #eadfae',
+            }}>
               {cat.title}
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Content */}
-      <div className="bg-[#faf7ec] flex-1">
-        <div className="site-container py-12 md:py-16 flex gap-10">
+      {/* Main Content */}
+      <div style={{ background: '#faf7ec', flex: 1 }}>
+        <div className="site-container" style={{ paddingTop: '48px', paddingBottom: '80px', display: 'flex', gap: '48px' }}>
 
-          {/* Desktop sidebar */}
-          <aside className="hidden md:block w-64 shrink-0">
-            <div className="sticky top-28 bg-white p-6 shadow-sm border border-[#eadfae]">
-              <h3 className="font-bold text-[#2D5016] mb-4 text-base border-b-2 border-[#F5C518] pb-2">Browse by</h3>
-              <Link href="/products" className="block py-2 text-sm text-gray-500 hover:text-[#2D5016]">All products</Link>
+          {/* Desktop Sidebar */}
+          <aside className="hidden md:block" style={{ width: '260px', flexShrink: 0 }}>
+            <div style={{
+              position: 'sticky', top: '130px',
+              background: '#fff', padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+              border: '1px solid #eadfae',
+            }}>
+              <h3 style={{ fontWeight: 900, color: '#2D5016', fontSize: '15px', borderBottom: '2px solid #E8B400', paddingBottom: '12px', marginBottom: '16px' }}>Browse by</h3>
+              <Link href="/products" style={{ display: 'block', padding: '10px 0', fontSize: '13px', color: '#999', textDecoration: 'none', borderBottom: '1px solid #f0ead8' }}>
+                All products
+              </Link>
               {categories.map((cat) => (
-                <Link key={cat.id} href={`/products/${cat.slug}`}
-                  className={`block py-2 text-sm leading-tight hover:text-[#2D5016] ${cat.slug === categorySlug ? 'text-[#2D5016] font-bold' : 'text-gray-500'}`}>
+                <Link key={cat.id} href={`/products/${cat.slug}`} style={{
+                  display: 'block', padding: '10px 0', fontSize: '13px', textDecoration: 'none',
+                  borderBottom: '1px solid #f0ead8',
+                  color: cat.slug === categorySlug ? '#2D5016' : '#888',
+                  fontWeight: cat.slug === categorySlug ? 800 : 400,
+                }}>
                   {cat.title}
                 </Link>
               ))}
             </div>
           </aside>
 
-          {/* Products grid */}
-          <div className="flex-1 min-w-0">
+          {/* Products Grid */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <p style={{ fontSize: '13px', color: '#999' }}>{products.length} product{products.length !== 1 ? 's' : ''}</p>
+            </div>
+
             {products.length === 0 ? (
-              <div className="bg-white border border-[#eadfae] p-10 text-center">
-                <p className="text-gray-400 text-base">No products yet in this category.</p>
-                <Link href="/products" className="inline-block mt-4 text-sm font-bold text-[#2D5016] underline">Browse all products</Link>
+              <div style={{ background: '#fff', border: '1px solid #eadfae', padding: '60px 20px', textAlign: 'center' }}>
+                <p style={{ color: '#bbb', fontSize: '16px' }}>No products yet in this category.</p>
+                <Link href="/products" style={{ display: 'inline-block', marginTop: '16px', fontSize: '13px', fontWeight: 700, color: '#2D5016', textDecoration: 'underline' }}>Browse all products</Link>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-7">
+              <div className="prod-cat-grid" style={{ display: 'grid', gap: '24px' }}>
                 {products.map((p) => (
-                  <Link key={p.id} href={`/products/${categorySlug}/${p.slug}`}
-                    className="bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden border border-[#eadfae]">
-                    {p.image
-                      ? <Image src={p.image} alt={p.title} width={420} height={260} className="h-40 w-full object-cover" />
-                      : <div className="h-40 bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] flex items-center justify-center px-4 text-center text-[#F5C518] text-sm font-black uppercase tracking-wider">{category?.title || 'Product'}</div>
-                    }
-                    <div className="p-3 md:p-4">
-                      <h3 className="font-bold text-[#2D5016] text-sm leading-snug">{p.title}</h3>
-                      <p className="text-xs text-gray-400 mt-1">{p.weight}</p>
+                  <Link key={p.id} href={`/products/${categorySlug}/${p.slug}`} style={{
+                    background: '#fff', textDecoration: 'none', overflow: 'hidden',
+                    border: '1px solid #eadfae', display: 'flex', flexDirection: 'column',
+                    transition: 'all 0.3s ease', boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+                  }}
+                    className="product-card"
+                  >
+                    <div style={{ position: 'relative', height: '240px', background: '#f8f6f0', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', overflow: 'hidden' }}>
+                      {p.image
+                        ? <Image src={p.image} alt={p.title} width={400} height={400} style={{ objectFit: 'contain', maxHeight: '200px', width: 'auto', maxWidth: '100%' }} />
+                        : <div style={{
+                            width: '100%', height: '100%',
+                            background: 'linear-gradient(135deg, #102006, #2D5016, #D97706)',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            padding: '16px', textAlign: 'center', color: '#E8B400',
+                            fontSize: '13px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',
+                          }}>{category?.title || 'Product'}</div>
+                      }
+                    </div>
+                    <div style={{ padding: '20px 20px 24px', borderTop: '1px solid #f0ead8' }}>
+                      <h3 style={{ fontWeight: 800, color: '#2D5016', fontSize: '15px', lineHeight: 1.3 }}>{p.title}</h3>
+                      <p style={{ fontSize: '12px', color: '#999', marginTop: '6px' }}>{p.weight}</p>
+                      <p style={{ fontSize: '13px', color: '#777', marginTop: '10px', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
+                      <span style={{
+                        display: 'inline-block', marginTop: '16px', fontSize: '11px', fontWeight: 800,
+                        textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400',
+                      }}>View Details →</span>
                     </div>
                   </Link>
                 ))}
@@ -88,6 +155,13 @@ export default async function CategoryPage({ params }) {
 
         </div>
       </div>
+
+      <style>{`
+        .prod-cat-grid { grid-template-columns: repeat(2, 1fr); }
+        @media(min-width: 1024px) { .prod-cat-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media(max-width: 480px) { .prod-cat-grid { grid-template-columns: 1fr; } }
+        .product-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-4px); }
+      `}</style>
 
       <Footer />
     </main>

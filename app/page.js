@@ -191,31 +191,40 @@ export default function Home() {
       {/* ── CATEGORIES ── */}
       <section style={{ background: '#faf7ec', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Browse</p>
+          <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
             <b>Our</b> Categories
           </h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px', marginTop: '48px', maxWidth: '1100px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <div className="cat-home-grid" style={{ display: 'grid', gap: '20px', marginTop: '56px' }}>
             {categories.map((cat) => (
               <Link key={cat.id} href={`/products/${cat.slug}`}
+                className="cat-home-card"
                 style={{
-                  width: 'calc(50% - 8px)', maxWidth: '240px', background: '#fff',
-                  border: '1px solid #eadfae', overflow: 'hidden', textDecoration: 'none',
-                  boxShadow: '0 1px 4px rgba(0,0,0,0.05)', flexShrink: 0,
+                  background: '#fff', overflow: 'hidden', textDecoration: 'none',
+                  border: '1px solid #eadfae', boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                  transition: 'all 0.3s ease',
                 }}>
-                <div style={{ position: 'relative', height: '130px', background: 'linear-gradient(135deg,#102006,#2D5016,#D97706)' }}>
+                <div style={{ position: 'relative', height: '180px', background: 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)' }}>
                   {categoryImages[cat.id] && (
-                    <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="240px" style={{ objectFit: 'cover', opacity: 0.55, mixBlendMode: 'screen' }} />
+                    <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="(max-width:768px) 50vw, 25vw" style={{ objectFit: 'cover', opacity: 0.5, mixBlendMode: 'screen' }} />
                   )}
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)' }} />
                 </div>
-                <div style={{ padding: '14px 12px', textAlign: 'center' }}>
-                  <p style={{ fontWeight: 900, color: '#2D5016', fontSize: '13px' }}>{cat.title}</p>
-                  <p style={{ marginTop: '5px', fontSize: '11px', color: '#999', lineHeight: 1.5 }}>{cat.description}</p>
+                <div style={{ padding: '20px 16px', textAlign: 'center' }}>
+                  <p style={{ fontWeight: 900, color: '#2D5016', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{cat.title}</p>
+                  <p style={{ marginTop: '6px', fontSize: '12px', color: '#999', lineHeight: 1.6 }}>{cat.description}</p>
+                  <span style={{ display: 'inline-block', marginTop: '12px', fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400' }}>Explore →</span>
                 </div>
               </Link>
             ))}
           </div>
         </div>
+        <style>{`
+          .cat-home-grid { grid-template-columns: repeat(2, 1fr); }
+          @media(min-width: 768px) { .cat-home-grid { grid-template-columns: repeat(3, 1fr); } }
+          @media(min-width: 1024px) { .cat-home-grid { grid-template-columns: repeat(4, 1fr); } }
+          .cat-home-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.12) !important; }
+        `}</style>
       </section>
 
       {/* ── TESTIMONIALS ── */}
