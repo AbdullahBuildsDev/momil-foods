@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
 
           {/* Social links */}
-          <div className="mt-6 flex items-center gap-3">
+          <div className="mt-9 flex items-center gap-3">
             <a href="#" aria-label="Instagram"
               className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-transform hover:-translate-y-1"
               style={{ background: 'linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)' }}>
