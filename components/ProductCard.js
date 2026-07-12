@@ -4,9 +4,9 @@ import Image from 'next/image'
 /**
  * Reusable product card — fully self-contained inline styles (no globals.css
  * dependency) so it always renders correctly. Pair with <ProductGrid> which
- * auto-fits 3-per-row on desktop and fewer on narrow screens for any count.
+ * auto-fits 4-per-row on desktop and fewer on narrow screens for any count.
  */
-export default function ProductCard({ product, categorySlug, categoryTitle, showDesc = true }) {
+export default function ProductCard({ product, categorySlug, categoryTitle, showDesc = false }) {
   return (
     <Link
       href={`/products/${categorySlug}/${product.slug}`}
@@ -16,15 +16,15 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
         textDecoration: 'none', overflow: 'hidden', height: '100%',
       }}
     >
-      {/* Media */}
+      {/* Media — product image made prominent (fills the box) */}
       <div style={{
-        position: 'relative', height: '240px', background: '#f8f6f0',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', overflow: 'hidden',
+        position: 'relative', height: '280px', background: '#fff',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px', overflow: 'hidden',
       }}>
         {product.image
-          ? <Image src={product.image} alt={product.title} width={400} height={400}
-              sizes="(max-width:1024px) 50vw, 33vw"
-              style={{ objectFit: 'contain', maxHeight: '200px', maxWidth: '100%', width: 'auto', height: 'auto' }} />
+          ? <Image src={product.image} alt={product.title} width={500} height={500}
+              sizes="(max-width:640px) 90vw, (max-width:1024px) 45vw, 24vw"
+              style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%', width: 'auto', height: 'auto' }} />
           : <div style={{
               width: '100%', height: '100%',
               background: 'linear-gradient(135deg, #102006, #2D5016, #D97706)',
@@ -35,8 +35,8 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
         }
       </div>
 
-      {/* Body */}
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '20px', borderTop: '1px solid #f0ead8' }}>
+      {/* Body — name + weight only (clean catalog look) */}
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '18px 18px 20px', borderTop: '1px solid #f0ead8' }}>
         {categoryTitle && (
           <p style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#D97706' }}>{categoryTitle}</p>
         )}
@@ -51,7 +51,7 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
           }}>{product.description}</p>
         )}
         <span style={{
-          marginTop: 'auto', paddingTop: '16px', fontSize: '11px', fontWeight: 800,
+          marginTop: 'auto', paddingTop: '14px', fontSize: '11px', fontWeight: 800,
           textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400',
         }}>View Details →</span>
       </div>
@@ -60,16 +60,16 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
 }
 
 /**
- * Responsive product grid. auto-fill + minmax => 3 columns on a normal content
- * area, dropping to 2 / 1 on narrower screens automatically, for any number of
- * products — so adding products never breaks the layout.
+ * Responsive product grid. auto-fill + minmax => 4 columns on a normal content
+ * area, dropping to 3 / 2 / 1 on narrower screens automatically, for any number
+ * of products — so adding products never breaks the layout.
  */
 export function ProductGrid({ children }) {
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-      gap: '24px',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+      gap: '20px',
       alignItems: 'stretch',
     }}>
       {children}

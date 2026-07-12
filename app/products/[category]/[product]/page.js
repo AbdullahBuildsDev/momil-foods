@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ProductImageZoom from '@/components/ProductImageZoom'
 import { categories, products, getCategory, getProduct, getProductsByCategory } from '@/lib/data'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -50,12 +51,12 @@ export default async function ProductPage({ params }) {
         <div className="site-container" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
           <div className="product-detail-grid" style={{ display: 'grid', gap: '48px', background: '#fff', border: '1px solid #eadfae', overflow: 'hidden' }}>
 
-            {/* Image */}
-            <div style={{ background: '#f8f6f0', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px', minHeight: '400px' }}>
+            {/* Image (with zoom in / out) */}
+            <div style={{ background: '#fff', padding: '24px', height: '480px' }}>
               {product.image
-                ? <Image src={product.image} alt={product.title} width={500} height={500} style={{ objectFit: 'contain', maxHeight: '420px', width: 'auto', maxWidth: '100%' }} />
+                ? <ProductImageZoom src={product.image} alt={product.title} />
                 : <div style={{
-                    width: '100%', height: '400px',
+                    width: '100%', height: '100%',
                     background: 'linear-gradient(135deg, #102006, #2D5016, #D97706)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: '#E8B400', fontSize: '28px', fontWeight: 900, textTransform: 'uppercase',
