@@ -28,6 +28,10 @@ export default function Footer() {
               </svg>
               +92 345 221 1111
             </a>
+            <a href="tel:+923394047370"
+              className="inline-flex items-center gap-2 text-base text-white/80 hover:text-[#F5C518] transition-colors pl-6">
+              +92 339 4047370
+            </a>
           </div>
 
           {/* Social links */}
@@ -79,7 +83,8 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-white/40 text-xs uppercase tracking-widest font-bold mb-1">Phone / WhatsApp</p>
-              <a href="https://wa.me/923452211111" target="_blank" rel="noopener noreferrer" className="hover:text-[#F5C518] transition-colors">+92 345 221 1111</a>
+              <a href="https://wa.me/923452211111" target="_blank" rel="noopener noreferrer" className="block hover:text-[#F5C518] transition-colors">+92 345 221 1111</a>
+              <a href="tel:+923394047370" className="block hover:text-[#F5C518] transition-colors">+92 339 4047370</a>
             </div>
             <div>
               <p className="text-white/40 text-xs uppercase tracking-widest font-bold mb-1">Services</p>
