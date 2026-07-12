@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import ProductCard, { ProductGrid } from '@/components/ProductCard'
+import ProductBrowser from '@/components/ProductBrowser'
 import { categories, products } from '@/lib/data'
 import Link from 'next/link'
 
@@ -87,24 +87,8 @@ export default function Products() {
 
           {/* Products Grid */}
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-              <h2 style={{ fontSize: 'clamp(22px,3vw,30px)', fontWeight: 900, color: '#2D5016' }}>All Products</h2>
-              <p style={{ fontSize: '14px', color: '#999' }}>{products.length} products</p>
-            </div>
-
-            <ProductGrid>
-              {products.map((p) => {
-                const cat = categories.find(c => c.id === p.category)
-                return (
-                  <ProductCard
-                    key={p.id}
-                    product={p}
-                    categorySlug={cat?.slug || p.category}
-                    categoryTitle={cat?.title}
-                  />
-                )
-              })}
-            </ProductGrid>
+            <h2 style={{ fontSize: 'clamp(22px,3vw,30px)', fontWeight: 900, color: '#2D5016', marginBottom: '20px' }}>All Products</h2>
+            <ProductBrowser products={products} categories={categories} />
           </div>
 
         </div>
