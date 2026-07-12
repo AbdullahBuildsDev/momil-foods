@@ -1,9 +1,16 @@
 'use client'
+import { usePathname } from 'next/navigation'
 
 /**
  * Fixed WhatsApp button shown on every page (bottom-right) with a soft pulse.
+ * Hidden on product detail pages, where the sticky MobileActionBar handles it.
  */
 export default function FloatingWhatsApp() {
+  const pathname = usePathname()
+  const segments = (pathname || '').split('/').filter(Boolean)
+  const isProductDetail = segments[0] === 'products' && segments.length >= 3
+  if (isProductDetail) return null
+
   const href = 'https://wa.me/923452211111?text=' +
     encodeURIComponent('Hello Momil Foods, I would like to enquire about your products.')
 

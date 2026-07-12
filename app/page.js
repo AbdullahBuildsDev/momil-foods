@@ -46,36 +46,36 @@ export default function Home() {
       <TrustBadges />
 
       {/* ── SPECIAL PRODUCTS ── */}
-      <Reveal><section style={{ background: '#ffffff', padding: '96px 0' }}>
+      <Reveal><section style={{ background: '#ffffff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Special Products</p>
           <h2 style={{ marginTop: '12px', fontSize: 'clamp(30px,4vw,46px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
             <b>Special</b> Products
           </h2>
           <p style={{ marginTop: '14px', fontSize: '18px', color: '#bbb', fontWeight: 300 }}>Good food, naturally!</p>
-          <div style={{
+          <div className="sp-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3,1fr)',
-            gap: '40px 20px',
-            maxWidth: '860px',
-            margin: '64px auto 0',
+            gap: 'clamp(28px,6vw,40px) 16px',
+            maxWidth: '900px',
+            margin: 'clamp(40px,7vw,64px) auto 0',
             justifyItems: 'center',
           }}>
             {specialProducts.map((item) => (
-              <Link key={item.title} href={item.href} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
-                <span style={{ position: 'relative', width: '88px', height: '88px', display: 'block', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eef0d5' }}>
-                  <Image src={item.image} alt={item.title} fill sizes="88px" style={{ objectFit: 'cover' }} />
+              <Link key={item.title} href={item.href} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+                <span style={{ position: 'relative', width: 'clamp(92px,25vw,116px)', height: 'clamp(92px,25vw,116px)', display: 'block', borderRadius: '50%', overflow: 'hidden', border: '4px solid #eef0d5' }}>
+                  <Image src={item.image} alt={item.title} fill sizes="116px" style={{ objectFit: 'cover' }} />
                 </span>
-                <span style={{ fontWeight: 800, fontSize: '14px', color: '#333', textAlign: 'center', lineHeight: 1.3 }}>{item.title}</span>
+                <span style={{ fontWeight: 800, fontSize: 'clamp(12px,3.4vw,14px)', color: '#333', textAlign: 'center', lineHeight: 1.3 }}>{item.title}</span>
               </Link>
             ))}
           </div>
         </div>
-        <style>{`@media(min-width:640px){#sp-grid{grid-template-columns:repeat(6,1fr)!important;gap:24px!important}}`}</style>
+        <style>{`@media(min-width:768px){.sp-grid{grid-template-columns:repeat(6,1fr)!important}}`}</style>
       </section></Reveal>
 
       {/* ── COMMITMENT ── */}
-      <section style={{ background: '#ffffff', paddingBottom: '96px' }}>
+      <section style={{ background: '#ffffff', paddingBottom: 'clamp(52px, 9vw, 96px)' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <h2 className="commitment-text" style={{
             fontSize: 'clamp(32px,5.5vw,72px)',
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section style={{ background: '#fff', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: '#fff', padding: 'clamp(64px, 11vw, 120px) 0', position: 'relative', overflow: 'hidden' }}>
         {/* Animated watermark */}
         <div className="about-watermark" style={{
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
@@ -132,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* ── CATEGORIES ── */}
-      <Reveal><section style={{ background: '#faf7ec', padding: '96px 0' }}>
+      <Reveal><section style={{ background: '#faf7ec', padding: 'clamp(52px, 9vw, 96px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
@@ -171,7 +171,7 @@ export default function Home() {
       </section></Reveal>
 
       {/* ── TESTIMONIALS ── */}
-      <Reveal><section style={{ background: '#ffffff', padding: '96px 0' }}>
+      <Reveal><section style={{ background: '#ffffff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Client Feedback</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(22px,3.5vw,38px)', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', lineHeight: 1.2 }}>

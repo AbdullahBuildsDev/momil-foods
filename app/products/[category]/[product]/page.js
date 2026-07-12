@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ProductImageZoom from '@/components/ProductImageZoom'
+import MobileActionBar from '@/components/MobileActionBar'
 import { categories, products, getCategory, getProduct, getProductsByCategory } from '@/lib/data'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -176,7 +177,11 @@ export default async function ProductPage({ params }) {
         @media(min-width: 768px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
       `}</style>
 
+      {/* spacer so the sticky mobile bar doesn't cover footer content */}
+      <div className="md:hidden" style={{ height: '68px' }} />
+
       <Footer />
+      <MobileActionBar productTitle={product.title} />
     </main>
   )
 }

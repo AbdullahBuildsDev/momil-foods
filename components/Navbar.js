@@ -94,7 +94,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#070b05] px-5 py-4">
+        <div className="md:hidden border-t border-white/10 bg-[#070b05] px-5 py-4 max-h-[80vh] overflow-y-auto"
+          style={{ animation: 'momilMenuDrop 0.25s ease-out' }}>
           <div className="flex flex-col">
             {[['/', 'Home'], ['/about', 'About'], ['/products', 'All Products'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([href, label]) => (
               <Link key={href} href={href}
@@ -121,6 +122,12 @@ export default function Navbar() {
           </Link>
         </div>
       )}
+      <style>{`
+        @keyframes momilMenuDrop {
+          from { opacity: 0; transform: translateY(-8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </nav>
   )
 }
