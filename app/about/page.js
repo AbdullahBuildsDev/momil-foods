@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import CountUp from '@/components/CountUp'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -55,7 +56,7 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '16px' }} className="about-stats">
             {stats.map(([num, label]) => (
               <div key={label} style={{ border: '1px solid rgba(245,197,24,0.25)', padding: '24px 20px', textAlign: 'center' }}>
-                <p style={{ fontSize: 'clamp(28px,5vw,42px)', fontWeight: 900, color: '#F5C518', lineHeight: 1 }}>{num}</p>
+                <p style={{ fontSize: 'clamp(28px,5vw,42px)', fontWeight: 900, color: '#F5C518', lineHeight: 1 }}><CountUp value={num} /></p>
                 <p style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>{label}</p>
               </div>
             ))}

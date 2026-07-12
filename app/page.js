@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import HeroSlider from '@/components/HeroSlider'
 import Footer from '@/components/Footer'
 import TrustBadges from '@/components/TrustBadges'
+import Reveal from '@/components/Reveal'
 import { categories } from '@/lib/data'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -45,7 +46,7 @@ export default function Home() {
       <TrustBadges />
 
       {/* ── SPECIAL PRODUCTS ── */}
-      <section style={{ background: '#ffffff', padding: '96px 0' }}>
+      <Reveal><section style={{ background: '#ffffff', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Special Products</p>
           <h2 style={{ marginTop: '12px', fontSize: 'clamp(30px,4vw,46px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
@@ -71,7 +72,7 @@ export default function Home() {
           </div>
         </div>
         <style>{`@media(min-width:640px){#sp-grid{grid-template-columns:repeat(6,1fr)!important;gap:24px!important}}`}</style>
-      </section>
+      </section></Reveal>
 
       {/* ── COMMITMENT ── */}
       <section style={{ background: '#ffffff', paddingBottom: '96px' }}>
@@ -131,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* ── CATEGORIES ── */}
-      <section style={{ background: '#faf7ec', padding: '96px 0' }}>
+      <Reveal><section style={{ background: '#faf7ec', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
@@ -167,10 +168,10 @@ export default function Home() {
           @media(min-width: 1024px) { .cat-home-grid { grid-template-columns: repeat(4, 1fr); } }
           .cat-home-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.12) !important; }
         `}</style>
-      </section>
+      </section></Reveal>
 
       {/* ── TESTIMONIALS ── */}
-      <section style={{ background: '#ffffff', padding: '96px 0' }}>
+      <Reveal><section style={{ background: '#ffffff', padding: '96px 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Client Feedback</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(22px,3.5vw,38px)', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', lineHeight: 1.2 }}>
@@ -190,7 +191,7 @@ export default function Home() {
           </div>
         </div>
         <style>{`@media(min-width:768px){.testi-grid{grid-template-columns:repeat(3,1fr)!important}}`}</style>
-      </section>
+      </section></Reveal>
 
       {/* ── SERVICE STRIP ── */}
       <section style={{ background: '#f8f5ec', padding: '60px 0' }}>

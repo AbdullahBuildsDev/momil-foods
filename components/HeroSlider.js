@@ -58,7 +58,7 @@ export default function HeroSlider() {
             fill
             priority
             sizes="100vw"
-            className="object-cover scale-105"
+            className="object-cover momil-kenburns"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/46 to-black/22" />
           <div className="absolute inset-0 bg-[#2D5016]/18 mix-blend-multiply" />
@@ -102,6 +102,17 @@ export default function HeroSlider() {
             className={`h-0.5 transition-all rounded-full ${i === current ? 'w-10 bg-[#F5C518]' : 'w-4 bg-white/40'}`} />
         ))}
       </div>
+
+      <style>{`
+        .momil-kenburns {
+          animation: momilKenBurns 8s ease-out forwards;
+          transform-origin: center;
+        }
+        @keyframes momilKenBurns {
+          from { transform: scale(1.05); }
+          to   { transform: scale(1.16); }
+        }
+      `}</style>
     </div>
   )
 }
