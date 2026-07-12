@@ -63,7 +63,7 @@ body {
 .commitment-text {
   background:
     linear-gradient(105deg, rgba(245, 197, 24, 0.98), rgba(74, 139, 31, 0.98) 42%, rgba(16, 32, 6, 0.96) 72%, rgba(217, 119, 6, 0.92)),
-    url('/products/spices.jpg');
+    url('/products/spices.webp');
   background-size: cover;
   background-position: center;
   -webkit-background-clip: text;
