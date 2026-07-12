@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import HeroSlider from '@/components/HeroSlider'
 import Footer from '@/components/Footer'
+import TrustBadges from '@/components/TrustBadges'
 import { categories } from '@/lib/data'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -41,6 +42,7 @@ export default function Home() {
     <main style={{ overflowX: 'hidden' }}>
       <Navbar />
       <HeroSlider />
+      <TrustBadges />
 
       {/* ── SPECIAL PRODUCTS ── */}
       <section style={{ background: '#ffffff', padding: '96px 0' }}>

@@ -10,6 +10,7 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
   return (
     <Link
       href={`/products/${categorySlug}/${product.slug}`}
+      className="momil-pcard"
       style={{
         display: 'flex', flexDirection: 'column', background: '#fff',
         border: '1px solid #eadfae', boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
@@ -73,6 +74,16 @@ export function ProductGrid({ children }) {
       alignItems: 'stretch',
     }}>
       {children}
+      <style>{`
+        .momil-pcard { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .momil-pcard:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 14px 34px rgba(0,0,0,0.12) !important;
+          border-color: #E8B400 !important;
+        }
+        .momil-pcard:hover img { transform: scale(1.04); }
+        .momil-pcard img { transition: transform 0.4s ease; }
+      `}</style>
     </div>
   )
 }
