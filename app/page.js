@@ -19,7 +19,7 @@ const IMG = {
 
 const specialProducts = [
   { title: 'Juices',              href: '/products/drinks-and-juices',          image: IMG.fruits },
-  { title: 'Himalayan Pink Salt', href: '/products/himalayan-pink-salt',       image: IMG.spices },
+  { title: 'Himalayan Pink Salt', href: '/products/salts',                     image: IMG.spices },
   { title: 'Dry Fruits',          href: '/products/bulk-dry-fruits-nuts',      image: IMG.nuts },
   { title: 'Saag',                href: '/products/exclusive-products-saag-halwa', image: IMG.mangoes },
   { title: 'Fried Onion',         href: '/products/fried-onion',               image: IMG.honey },
