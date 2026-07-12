@@ -4,6 +4,12 @@ import CountUp from '@/components/CountUp'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'About Us',
+  description: 'Momil Foods Pvt. Ltd. — 13+ years of product development and export experience. Built on quality, innovation, service and trust, supporting local and global food buyers from Lahore, Pakistan.',
+  alternates: { canonical: '/about' },
+}
+
 const services = [
   'Private Labeling', 'Bulk Supplying',
   'USA FDA Registration', 'Co Packing',

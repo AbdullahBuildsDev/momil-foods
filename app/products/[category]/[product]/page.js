@@ -15,6 +15,24 @@ export function generateStaticParams() {
   })
 }
 
+export async function generateMetadata({ params }) {
+  const { category: categorySlug, product: productSlug } = await params
+  const product = getProduct(productSlug)
+  if (!product) return { title: 'Product' }
+  const category = getCategory(categorySlug)
+  const desc = product.description || `${product.title} from Momil Foods.`
+  return {
+    title: `${product.title}${product.weight ? ` — ${product.weight}` : ''}`,
+    description: `${desc} Export-quality ${category?.title || 'product'} by Momil Foods, Pakistan.`,
+    alternates: { canonical: `/products/${categorySlug}/${product.slug}` },
+    openGraph: {
+      title: `${product.title} | Momil Foods`,
+      description: desc,
+      images: product.image ? [{ url: product.image }] : undefined,
+    },
+  }
+}
+
 export default async function ProductPage({ params }) {
   const { category: categorySlug, product: productSlug } = await params
   const product = getProduct(productSlug)

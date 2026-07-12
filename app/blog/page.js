@@ -3,6 +3,12 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { blogPosts as posts } from '@/lib/blogData'
 
+export const metadata = {
+  title: 'Blog',
+  description: 'News, insights and updates from Momil Foods on Pakistani food exports, sourcing, private labeling and quality.',
+  alternates: { canonical: '/blog' },
+}
+
 export default function Blog() {
   return (
     <main className="min-h-screen flex flex-col bg-[#faf7ec]">

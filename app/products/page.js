@@ -4,6 +4,12 @@ import ProductBrowser from '@/components/ProductBrowser'
 import { categories, products } from '@/lib/data'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'Products',
+  description: 'Browse Momil Foods’ export product range — spices, dry fruits & nuts, honey, tea, snacks, Himalayan pink salt, sauces, pickles and more. Search and filter our full catalog.',
+  alternates: { canonical: '/products' },
+}
+
 export default function Products() {
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

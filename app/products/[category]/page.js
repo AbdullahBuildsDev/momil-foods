@@ -10,6 +10,17 @@ export function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params }) {
+  const { category: categorySlug } = await params
+  const category = getCategory(categorySlug)
+  if (!category) return { title: 'Products' }
+  return {
+    title: category.title,
+    description: `${category.title} from Momil Foods — ${category.description}. Export-quality Pakistani food products with bulk supply and private labeling.`,
+    alternates: { canonical: `/products/${category.slug}` },
+  }
+}
+
 export default async function CategoryPage({ params }) {
   const { category: categorySlug } = await params
   const category = getCategory(categorySlug)
