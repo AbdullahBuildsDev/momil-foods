@@ -1,8 +1,8 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ProductCard, { ProductGrid } from '@/components/ProductCard'
 import { categories, getCategory, getProductsByCategory } from '@/lib/data'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export function generateStaticParams() {
   return categories.map((category) => ({
@@ -117,51 +117,21 @@ export default async function CategoryPage({ params }) {
                 <Link href="/products" style={{ display: 'inline-block', marginTop: '16px', fontSize: '14px', fontWeight: 700, color: '#2D5016', textDecoration: 'underline' }}>Browse all products</Link>
               </div>
             ) : (
-              <div className="prod-cat-grid" style={{ display: 'grid', gap: '24px' }}>
+              <ProductGrid>
                 {products.map((p) => (
-                  <Link key={p.id} href={`/products/${categorySlug}/${p.slug}`} style={{
-                    background: '#fff', textDecoration: 'none', overflow: 'hidden',
-                    border: '1px solid #eadfae', display: 'flex', flexDirection: 'column',
-                    transition: 'all 0.3s ease', boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
-                  }}
-                    className="product-card"
-                  >
-                    <div style={{ position: 'relative', height: '240px', background: '#f8f6f0', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', overflow: 'hidden' }}>
-                      {p.image
-                        ? <Image src={p.image} alt={p.title} width={400} height={400} style={{ objectFit: 'contain', maxHeight: '200px', width: 'auto', maxWidth: '100%' }} />
-                        : <div style={{
-                            width: '100%', height: '100%',
-                            background: 'linear-gradient(135deg, #102006, #2D5016, #D97706)',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            padding: '16px', textAlign: 'center', color: '#E8B400',
-                            fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',
-                          }}>{category?.title || 'Product'}</div>
-                      }
-                    </div>
-                    <div style={{ padding: '20px 20px 24px', borderTop: '1px solid #f0ead8' }}>
-                      <h3 style={{ fontWeight: 800, color: '#2D5016', fontSize: '16px', lineHeight: 1.3 }}>{p.title}</h3>
-                      <p style={{ fontSize: '12px', color: '#999', marginTop: '6px' }}>{p.weight}</p>
-                      <p style={{ fontSize: '14px', color: '#777', marginTop: '10px', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
-                      <span style={{
-                        display: 'inline-block', marginTop: '16px', fontSize: '14px', fontWeight: 800,
-                        textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400',
-                      }}>View Details →</span>
-                    </div>
-                  </Link>
+                  <ProductCard
+                    key={p.id}
+                    product={p}
+                    categorySlug={categorySlug}
+                    categoryTitle={category?.title}
+                  />
                 ))}
-              </div>
+              </ProductGrid>
             )}
           </div>
 
         </div>
       </div>
-
-      <style>{`
-        .prod-cat-grid { grid-template-columns: repeat(2, 1fr); }
-        @media(min-width: 1024px) { .prod-cat-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media(max-width: 480px) { .prod-cat-grid { grid-template-columns: 1fr; } }
-        .product-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-4px); }
-      `}</style>
 
       <Footer />
     </main>

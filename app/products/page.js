@@ -1,60 +1,115 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ProductCard, { ProductGrid } from '@/components/ProductCard'
 import { categories, products } from '@/lib/data'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Products() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
-      <div style={{ background: '#0d1308', paddingTop: '140px', paddingBottom: '64px', textAlign: 'center', color: '#fff' }}>
-        <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '14px' }}>Momil Foods</p>
-        <h1 style={{ fontSize: 'clamp(36px,6vw,64px)', fontWeight: 900, textTransform: 'uppercase' }}>Our Products</h1>
-      </div>
-      <div className="md:hidden bg-white border-b border-[#eadfae] px-4 py-3 overflow-x-auto">
-        <div className="flex gap-2 whitespace-nowrap">
-          <a href="/products" className="inline-block px-4 py-2 text-xs font-black uppercase bg-[#2D5016] text-white rounded-full">All</a>
+
+      {/* Hero Banner */}
+      <section style={{
+        background: 'linear-gradient(135deg, #0d1308 0%, #1a2a0f 50%, #0d1308 100%)',
+        paddingTop: '160px',
+        paddingBottom: '80px',
+        textAlign: 'center',
+        color: '#fff',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 'clamp(120px,20vw,320px)', fontWeight: 900, color: 'rgba(232,180,0,0.04)',
+          pointerEvents: 'none', userSelect: 'none', lineHeight: 1, textTransform: 'uppercase',
+        }}>Products</div>
+        <div className="site-container" style={{ position: 'relative' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '20px' }}>
+            <Link href="/" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
+            <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
+            <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>All Products</span>
+          </div>
+          <h1 style={{ fontSize: 'clamp(36px,6vw,72px)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1 }}>
+            Our Products
+          </h1>
+          <p style={{ marginTop: '16px', fontSize: '16px', color: 'rgba(255,255,255,0.5)', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
+            Selected food and beverage products with dependable quality, practical packing and buyer-ready support from Lahore, Pakistan.
+          </p>
+        </div>
+      </section>
+
+      {/* Category Chips - Mobile */}
+      <div className="md:hidden" style={{ background: '#fff', borderBottom: '1px solid #eadfae', padding: '16px', overflowX: 'auto' }}>
+        <div style={{ display: 'flex', gap: '8px', whiteSpace: 'nowrap' }}>
+          <Link href="/products" style={{
+            display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 800,
+            textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
+            background: '#2D5016', color: '#fff', border: '1px solid #2D5016',
+          }}>All</Link>
           {categories.map((cat) => (
-            <a key={cat.id} href={`/products/${cat.slug}`} className="inline-block px-4 py-2 text-xs font-semibold uppercase border border-[#eadfae] rounded-full text-[#2D5016] hover:bg-[#2D5016] hover:text-white transition">{cat.title}</a>
+            <Link key={cat.id} href={`/products/${cat.slug}`} style={{
+              display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 600,
+              textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
+              color: '#2D5016', border: '1px solid #eadfae',
+            }}>
+              {cat.title}
+            </Link>
           ))}
         </div>
       </div>
-      <div className="bg-[#faf7ec] flex-1">
-      <div className="site-container py-12 md:py-16 flex gap-10">
-        <aside className="hidden md:block w-72 shrink-0">
-          <div className="sticky top-28 bg-white p-6 shadow-sm border border-[#eadfae]">
-          <h3 className="font-bold text-[#2D5016] mb-4 text-lg border-b-2 border-[#F5C518] pb-2">Browse by</h3>
-          <Link href="/products" className="block py-2 text-[#2D5016] hover:text-[#D97706] font-semibold">All products</Link>
-          {categories.map((cat) => (
-            <Link key={cat.id} href={`/products/${cat.slug}`} className="block py-2 text-gray-600 hover:text-[#2D5016] leading-tight">{cat.title}</Link>
-          ))}
-          </div>
-        </aside>
-        <div className="flex-1">
-          <h2 className="text-3xl font-bold text-[#2D5016] mb-8">All Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-            {products.map((p) => {
-              const cat = categories.find(c => c.id === p.category)
-              return (
-                <Link key={p.id} href={`/products/${cat?.slug || p.category}/${p.slug}`}
-                  className="bg-white rounded-sm shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden border border-[#eadfae]">
-                  {p.image
-                    ? <Image src={p.image} alt={p.title} width={420} height={260} className="h-48 w-full object-cover" />
-                    : <div className="h-52 bg-gradient-to-br from-[#102006] via-[#2D5016] to-[#D97706] flex items-center justify-center px-6 text-center text-[#F5C518] text-xl font-black uppercase tracking-widest">{cat?.title || 'Product'}</div>
-                  }
-                  <div className="p-4">
-                    <p className="text-xs text-[#D97706] font-semibold uppercase">{cat?.title}</p>
-                    <h3 className="font-bold text-[#2D5016] mt-1">{p.title}</h3>
-                    <p className="text-sm text-gray-500 mt-1">{p.weight}</p>
-                  </div>
+
+      {/* Main Content */}
+      <div style={{ background: '#faf7ec', flex: 1 }}>
+        <div className="site-container" style={{ paddingTop: '48px', paddingBottom: '80px', display: 'flex', gap: '48px' }}>
+
+          {/* Desktop Sidebar */}
+          <aside className="hidden md:block" style={{ width: '260px', flexShrink: 0 }}>
+            <div style={{
+              position: 'sticky', top: '130px',
+              background: '#fff', padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+              border: '1px solid #eadfae',
+            }}>
+              <h3 style={{ fontWeight: 900, color: '#2D5016', fontSize: '16px', borderBottom: '2px solid #E8B400', paddingBottom: '12px', marginBottom: '16px' }}>Browse by</h3>
+              <Link href="/products" style={{ display: 'block', padding: '10px 0', fontSize: '14px', color: '#2D5016', fontWeight: 800, textDecoration: 'none', borderBottom: '1px solid #f0ead8' }}>
+                All products
+              </Link>
+              {categories.map((cat) => (
+                <Link key={cat.id} href={`/products/${cat.slug}`} style={{
+                  display: 'block', padding: '10px 0', fontSize: '14px', textDecoration: 'none',
+                  borderBottom: '1px solid #f0ead8', color: '#888', fontWeight: 400,
+                }}>
+                  {cat.title}
                 </Link>
-              )
-            })}
+              ))}
+            </div>
+          </aside>
+
+          {/* Products Grid */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+              <h2 style={{ fontSize: 'clamp(22px,3vw,30px)', fontWeight: 900, color: '#2D5016' }}>All Products</h2>
+              <p style={{ fontSize: '14px', color: '#999' }}>{products.length} products</p>
+            </div>
+
+            <ProductGrid>
+              {products.map((p) => {
+                const cat = categories.find(c => c.id === p.category)
+                return (
+                  <ProductCard
+                    key={p.id}
+                    product={p}
+                    categorySlug={cat?.slug || p.category}
+                    categoryTitle={cat?.title}
+                  />
+                )
+              })}
+            </ProductGrid>
           </div>
+
         </div>
       </div>
-      </div>
+
       <Footer />
     </main>
   )
