@@ -35,7 +35,7 @@ export default async function BlogPost({ params }) {
             <span style={{ fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D97706', border: '1px solid #D97706', padding: '4px 12px' }}>{post.tag}</span>
             <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)' }}>{post.date}</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(24px,4vw,42px)', fontWeight: 900, lineHeight: 1.2, maxWidth: '700px' }}>{post.title}</h1>
+          <h1 style={{ fontSize: 'clamp(22px,3vw,34px)', fontWeight: 900, lineHeight: 1.2, maxWidth: '700px' }}>{post.title}</h1>
           <p style={{ marginTop: '16px', fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8 }}>{post.excerpt}</p>
         </div>
       </section>

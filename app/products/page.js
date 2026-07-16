@@ -36,7 +36,7 @@ export default function Products() {
             <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
             <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>All Products</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(36px,6vw,72px)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1 }}>
+          <h1 style={{ fontSize: 'clamp(32px,4.5vw,54px)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1 }}>
             Our Products
           </h1>
           <p style={{ marginTop: '16px', fontSize: '16px', color: 'rgba(255,255,255,0.5)', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
@@ -93,7 +93,7 @@ export default function Products() {
 
           {/* Products Grid */}
           <div style={{ flex: 1, minWidth: 0 }}>
-            <h2 style={{ fontSize: 'clamp(22px,3vw,30px)', fontWeight: 900, color: '#2D5016', marginBottom: '20px' }}>All Products</h2>
+            <h2 style={{ fontSize: 'clamp(20px,2.3vw,27px)', fontWeight: 900, color: '#2D5016', marginBottom: '20px' }}>All Products</h2>
             <ProductBrowser products={products} categories={categories} />
           </div>
 

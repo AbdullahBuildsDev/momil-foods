@@ -45,7 +45,7 @@ export default function About() {
         <div className="site-container" style={{ position: 'relative', display: 'grid', gap: '48px', alignItems: 'center', gridTemplateColumns: '1fr' }}>
           <div>
             <p style={{ fontSize: '16px', fontWeight: 800, letterSpacing: '0.26em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '20px' }}>Quality food and beverages exporter</p>
-            <h1 style={{ fontSize: 'clamp(30px,5vw,60px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.1, maxWidth: '700px' }}>
+            <h1 style={{ fontSize: 'clamp(28px,3.8vw,46px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.1, maxWidth: '700px' }}>
               Built on quality, innovation, service and trust.
             </h1>
             <p style={{ marginTop: '24px', maxWidth: '560px', fontSize: '17px', lineHeight: 1.85, color: 'rgba(255,255,255,0.78)' }}>
@@ -62,7 +62,7 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '16px' }} className="about-stats">
             {stats.map(([num, label]) => (
               <div key={label} style={{ border: '1px solid rgba(245,197,24,0.25)', padding: '24px 20px', textAlign: 'center' }}>
-                <p style={{ fontSize: 'clamp(28px,5vw,42px)', fontWeight: 900, color: '#F5C518', lineHeight: 1 }}><CountUp value={num} /></p>
+                <p style={{ fontSize: 'clamp(24px,3.6vw,34px)', fontWeight: 900, color: '#F5C518', lineHeight: 1 }}><CountUp value={num} /></p>
                 <p style={{ marginTop: '8px', fontSize: '14px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>{label}</p>
               </div>
             ))}
@@ -81,7 +81,7 @@ export default function About() {
         <div className="site-container" style={{ position: 'relative', display: 'grid', gap: '48px', alignItems: 'start', gridTemplateColumns: '1fr' }}>
           <div>
             <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706', marginBottom: '16px' }}>Our Story</p>
-            <h2 style={{ fontSize: 'clamp(28px,4vw,46px)', fontWeight: 300, textTransform: 'uppercase', lineHeight: 1.2, color: '#3c3c3c' }}>
+            <h2 style={{ fontSize: 'clamp(22px,2.5vw,30px)', fontWeight: 300, textTransform: 'uppercase', lineHeight: 1.2, color: '#3c3c3c' }}>
               <b>About</b> Momil Foods
             </h2>
           </div>
@@ -99,7 +99,7 @@ export default function About() {
         <div className="site-container">
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
             <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706', marginBottom: '14px' }}>What Drives Us</p>
-            <h2 style={{ fontSize: 'clamp(26px,3.5vw,40px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}><b>Our</b> Four Pillars</h2>
+            <h2 style={{ fontSize: 'clamp(23px,2.7vw,32px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}><b>Our</b> Four Pillars</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '16px' }} className="pillar-grid">
             {pillars.map(([title, text]) => (
@@ -120,14 +120,14 @@ export default function About() {
           <div style={{ display: 'grid', gap: '24px' }} className="vm-grid">
             <div style={{ border: '1px solid #eadfae', background: '#fffdf7', padding: '40px' }}>
               <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#D97706', marginBottom: '16px' }}>Vision</p>
-              <h3 style={{ fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 900, lineHeight: 1.25, color: '#172006', marginBottom: '16px' }}>
+              <h3 style={{ fontSize: 'clamp(19px,2.2vw,25px)', fontWeight: 900, lineHeight: 1.25, color: '#172006', marginBottom: '16px' }}>
                 To be a global quality food sourcing partner.
               </h3>
               <p style={{ fontSize: '16px', lineHeight: 1.85, color: '#626262' }}>We aim to become a leading service provider through innovation and dependable buyer support.</p>
             </div>
             <div style={{ border: '1px solid #eadfae', background: '#fffdf7', padding: '40px' }}>
               <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#D97706', marginBottom: '16px' }}>Mission</p>
-              <h3 style={{ fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 900, lineHeight: 1.25, color: '#172006', marginBottom: '16px' }}>
+              <h3 style={{ fontSize: 'clamp(19px,2.2vw,25px)', fontWeight: 900, lineHeight: 1.25, color: '#172006', marginBottom: '16px' }}>
                 To increase buyer profitability with swift, affordable support.
               </h3>
               <p style={{ fontSize: '16px', lineHeight: 1.85, color: '#626262' }}>Our mission is to provide quality food products and practical services that help buyers move faster in their own markets.</p>
@@ -135,7 +135,7 @@ export default function About() {
           </div>
 
           <div style={{ border: '1px solid #eadfae', background: '#fff', padding: '40px', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-            <h3 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 900, color: '#2D5016', marginBottom: '32px' }}>Our Services</h3>
+            <h3 style={{ fontSize: 'clamp(22px,2.5vw,30px)', fontWeight: 900, color: '#2D5016', marginBottom: '32px' }}>Our Services</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '0' }} className="svc-grid">
               {services.map((service) => (
                 <div key={service} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px 0', borderBottom: '1px solid #ece2bd' }}>
@@ -161,7 +161,7 @@ export default function About() {
       <section style={{ background: '#0d1308', padding: 'clamp(48px, 8vw, 80px) 0', textAlign: 'center' }}>
         <div className="site-container">
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '20px' }}>Ready to work together?</p>
-          <h2 style={{ fontSize: 'clamp(26px,4vw,46px)', fontWeight: 900, color: '#fff', marginBottom: '32px', lineHeight: 1.2 }}>
+          <h2 style={{ fontSize: 'clamp(23px,3vw,36px)', fontWeight: 900, color: '#fff', marginBottom: '32px', lineHeight: 1.2 }}>
             Let&rsquo;s Build Your Food Brand
           </h2>
           <Link href="/contact" style={{

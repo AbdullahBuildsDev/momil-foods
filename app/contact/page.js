@@ -34,7 +34,7 @@ export default function Contact() {
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 50%, rgba(245,197,24,0.12), transparent 55%)' }} />
         <div className="site-container" style={{ position: 'relative' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '16px' }}>Momil Foods</p>
-          <h1 style={{ fontSize: 'clamp(36px,6vw,64px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.05 }}>Get In Touch</h1>
+          <h1 style={{ fontSize: 'clamp(30px,4.2vw,50px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.05 }}>Get In Touch</h1>
           <p style={{ marginTop: '18px', fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '480px', margin: '18px auto 0', lineHeight: 1.8 }}>
             Ready to source quality food products? We respond within 24 hours.
           </p>
@@ -82,7 +82,7 @@ export default function Contact() {
 
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706', marginBottom: '14px' }}>Send an Enquiry</p>
-            <h2 style={{ fontSize: 'clamp(26px,4vw,38px)', fontWeight: 900, color: '#0f2205' }}>Tell Us What You Need</h2>
+            <h2 style={{ fontSize: 'clamp(23px,2.8vw,32px)', fontWeight: 900, color: '#0f2205' }}>Tell Us What You Need</h2>
             <p style={{ marginTop: '12px', color: '#888', lineHeight: 1.8, fontSize: '16px' }}>
               Whether it&apos;s bulk sourcing, private labeling, or a custom product — we are here to help.
             </p>

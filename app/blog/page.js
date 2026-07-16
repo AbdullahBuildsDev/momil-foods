@@ -18,7 +18,7 @@ export default function Blog() {
       <section style={{ background: '#0d1308', paddingTop: '140px', paddingBottom: '80px', color: '#fff', textAlign: 'center' }}>
         <div className="site-container">
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '16px' }}>Momil Foods</p>
-          <h1 style={{ fontSize: 'clamp(36px,6vw,64px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.05 }}>Blog</h1>
+          <h1 style={{ fontSize: 'clamp(30px,4.2vw,50px)', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1.05 }}>Blog</h1>
           <p style={{ marginTop: '18px', fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '480px', margin: '18px auto 0', lineHeight: 1.8 }}>
             Industry insights, export updates, and product news from Momil Foods.
           </p>

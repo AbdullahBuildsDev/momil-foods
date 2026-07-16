@@ -54,7 +54,7 @@ export default async function CategoryPage({ params }) {
             <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>{category?.title}</span>
           </div>
           <h1 style={{
-            fontSize: 'clamp(36px,6vw,72px)',
+            fontSize: 'clamp(32px,4.5vw,54px)',
             fontWeight: 900,
             textTransform: 'uppercase',
             letterSpacing: '0.04em',

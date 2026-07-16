@@ -86,7 +86,7 @@ export default async function ProductPage({ params }) {
             {/* Info */}
             <div style={{ padding: '48px 40px 48px 0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="product-info-pad">
               <p style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: '#E8B400' }}>{category?.title}</p>
-              <h1 style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 900, color: '#2D5016', marginTop: '12px', lineHeight: 1.15 }}>{product.title}</h1>
+              <h1 style={{ fontSize: 'clamp(24px,3vw,34px)', fontWeight: 900, color: '#2D5016', marginTop: '12px', lineHeight: 1.15 }}>{product.title}</h1>
 
               <div style={{ display: 'flex', gap: '24px', marginTop: '24px', paddingBottom: '24px', borderBottom: '1px solid #f0ead8' }}>
                 {product.weight && (
@@ -133,7 +133,7 @@ export default async function ProductPage({ params }) {
           {relatedProducts.length > 0 && (
             <div style={{ marginTop: '72px' }}>
               <h3 style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#E8B400', marginBottom: '12px' }}>More from {category?.title}</h3>
-              <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', marginBottom: '32px' }}>
+              <h2 style={{ fontSize: 'clamp(20px,2.4vw,28px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', marginBottom: '32px' }}>
                 <b>Related</b> Products
               </h2>
               <div className="related-grid" style={{ display: 'grid', gap: '20px' }}>

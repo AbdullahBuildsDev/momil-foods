@@ -49,7 +49,7 @@ export default function Home() {
       <Reveal><section style={{ background: '#ffffff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Special Products</p>
-          <h2 style={{ marginTop: '12px', fontSize: 'clamp(30px,4vw,46px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
+          <h2 style={{ marginTop: '12px', fontSize: 'clamp(26px,3vw,36px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
             <b>Special</b> Products
           </h2>
           <p style={{ marginTop: '14px', fontSize: '18px', color: '#bbb', fontWeight: 300 }}>Good food, naturally!</p>
@@ -78,7 +78,7 @@ export default function Home() {
       <section style={{ background: '#ffffff', paddingBottom: 'clamp(52px, 9vw, 96px)' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <h2 className="commitment-text" style={{
-            fontSize: 'clamp(32px,5.5vw,72px)',
+            fontSize: 'clamp(28px,4.4vw,52px)',
             fontWeight: 900,
             textTransform: 'uppercase',
             lineHeight: 1.18,
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="about-home-grid" style={{ display: 'grid', gap: '40px', alignItems: 'center', gridTemplateColumns: '1fr' }}>
             <div>
               <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Our Story</p>
-              <h3 style={{ marginTop: '16px', fontSize: 'clamp(28px,4vw,48px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.15 }}>
+              <h3 style={{ marginTop: '16px', fontSize: 'clamp(22px,2.5vw,30px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.15 }}>
                 <b>About</b> Momil Foods
               </h3>
               <Link href="/about" style={{
@@ -135,7 +135,7 @@ export default function Home() {
       <Reveal><section style={{ background: '#faf7ec', padding: 'clamp(52px, 9vw, 96px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
-          <h3 style={{ marginTop: '14px', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
+          <h3 style={{ marginTop: '14px', fontSize: 'clamp(24px,3vw,34px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
             <b>Our</b> Categories
           </h3>
           <div className="cat-home-grid" style={{ display: 'grid', gap: '20px', marginTop: '56px' }}>
@@ -174,7 +174,7 @@ export default function Home() {
       <Reveal><section style={{ background: '#ffffff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Client Feedback</p>
-          <h3 style={{ marginTop: '14px', fontSize: 'clamp(22px,3.5vw,38px)', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', lineHeight: 1.2 }}>
+          <h3 style={{ marginTop: '14px', fontSize: 'clamp(20px,2.7vw,31px)', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', lineHeight: 1.2 }}>
             People Say About Momil Foods
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '20px', marginTop: '48px', maxWidth: '1100px', marginLeft: 'auto', marginRight: 'auto' }} className="testi-grid">
