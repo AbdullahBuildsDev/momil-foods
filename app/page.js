@@ -147,11 +147,10 @@ export default function Home() {
                   border: '1px solid #eadfae', boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                   transition: 'all 0.3s ease',
                 }}>
-                <div style={{ position: 'relative', height: '128px', background: 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)' }}>
+                <div style={{ position: 'relative', height: '150px', background: 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)' }}>
                   {categoryImages[cat.id] && (
-                    <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="(max-width:768px) 50vw, 25vw" style={{ objectFit: 'cover', opacity: 0.5, mixBlendMode: 'screen' }} />
+                    <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="(max-width:768px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
                   )}
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)' }} />
                 </div>
                 <div style={{ padding: '14px 12px', textAlign: 'center' }}>
                   <p style={{ fontWeight: 900, color: '#2D5016', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{cat.title}</p>
