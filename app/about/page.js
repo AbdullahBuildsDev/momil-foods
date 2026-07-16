@@ -72,7 +72,7 @@ export default function About() {
       </section>
 
       {/* ── ABOUT TEXT ── */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: '#fff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
+      <section style={{ position: 'relative', overflow: 'hidden', background: '#fff', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div style={{
           position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: 'clamp(80px,16vw,260px)', fontWeight: 900, color: 'rgba(232,180,0,0.13)',
@@ -95,7 +95,7 @@ export default function About() {
       </section>
 
       {/* ── PILLARS ── */}
-      <section style={{ background: '#f8f5ec', padding: 'clamp(52px, 9vw, 96px) 0' }}>
+      <section style={{ background: '#f8f5ec', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div className="site-container">
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
             <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706', marginBottom: '14px' }}>What Drives Us</p>
@@ -115,7 +115,7 @@ export default function About() {
       </section>
 
       {/* ── VISION / MISSION / SERVICES ── */}
-      <section style={{ background: '#fff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
+      <section style={{ background: '#fff', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div className="site-container" style={{ display: 'grid', gap: '40px' }}>
           <div style={{ display: 'grid', gap: '24px' }} className="vm-grid">
             <div style={{ border: '1px solid #eadfae', background: '#fffdf7', padding: '40px' }}>
@@ -158,7 +158,7 @@ export default function About() {
       </section>
 
       {/* ── CTA STRIP ── */}
-      <section style={{ background: '#0d1308', padding: 'clamp(48px, 8vw, 80px) 0', textAlign: 'center' }}>
+      <section style={{ background: '#0d1308', padding: 'clamp(30px, 4.5vw, 50px) 0', textAlign: 'center' }}>
         <div className="site-container">
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#F5C518', marginBottom: '20px' }}>Ready to work together?</p>
           <h2 style={{ fontSize: 'clamp(23px,3vw,36px)', fontWeight: 900, color: '#fff', marginBottom: '32px', lineHeight: 1.2 }}>

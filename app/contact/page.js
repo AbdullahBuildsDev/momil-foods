@@ -77,7 +77,7 @@ export default function Contact() {
       </section>
 
       {/* ── Enquiry Form ── */}
-      <section style={{ flex: 1, padding: 'clamp(48px, 8vw, 80px) 0' }}>
+      <section style={{ flex: 1, padding: 'clamp(30px, 4.5vw, 50px) 0' }}>
         <div className="site-container" style={{ maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto' }}>
 
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>

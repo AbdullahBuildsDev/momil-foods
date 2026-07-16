@@ -41,7 +41,7 @@ export default async function BlogPost({ params }) {
       </section>
 
       {/* Content */}
-      <section style={{ flex: 1, padding: '72px 0' }}>
+      <section style={{ flex: 1, padding: '48px 0' }}>
         <div className="site-container" style={{ maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto' }}>
           <div style={{ background: '#fff', border: '1px solid #e6d8a4', padding: '48px 40px' }} className="blog-body">
             {post.content.map((para, i) => (

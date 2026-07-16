@@ -26,7 +26,7 @@ export default function Blog() {
       </section>
 
       {/* ── Posts grid ── */}
-      <section style={{ flex: 1, padding: 'clamp(48px, 8vw, 80px) 0' }}>
+      <section style={{ flex: 1, padding: 'clamp(30px, 4.5vw, 50px) 0' }}>
         <div className="site-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '24px' }} className="blog-grid">
             {posts.map((post) => (

@@ -46,7 +46,7 @@ export default function Home() {
       <TrustBadges />
 
       {/* ── SPECIAL PRODUCTS ── */}
-      <Reveal><section style={{ background: '#ffffff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
+      <Reveal><section style={{ background: '#ffffff', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Special Products</p>
           <h2 style={{ marginTop: '12px', fontSize: 'clamp(26px,3vw,36px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
@@ -75,7 +75,7 @@ export default function Home() {
       </section></Reveal>
 
       {/* ── COMMITMENT ── */}
-      <section style={{ background: '#ffffff', paddingBottom: 'clamp(52px, 9vw, 96px)' }}>
+      <section style={{ background: '#ffffff', paddingBottom: 'clamp(34px, 5vw, 58px)' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <h2 className="commitment-text" style={{
             fontSize: 'clamp(28px,4.4vw,52px)',
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section style={{ background: '#fff', padding: 'clamp(64px, 11vw, 120px) 0', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: '#fff', padding: 'clamp(38px, 6vw, 68px) 0', position: 'relative', overflow: 'hidden' }}>
         {/* Animated watermark */}
         <div className="about-watermark" style={{
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
@@ -132,13 +132,13 @@ export default function Home() {
       </section>
 
       {/* ── CATEGORIES ── */}
-      <Reveal><section style={{ background: '#faf7ec', padding: 'clamp(52px, 9vw, 96px) 0' }}>
+      <Reveal><section style={{ background: '#faf7ec', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#E8B400' }}>Browse</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(24px,3vw,34px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b' }}>
             <b>Our</b> Categories
           </h3>
-          <div className="cat-home-grid" style={{ display: 'grid', gap: '20px', marginTop: '56px' }}>
+          <div className="cat-home-grid" style={{ display: 'grid', gap: '18px', marginTop: '34px' }}>
             {categories.map((cat) => (
               <Link key={cat.id} href={`/products/${cat.slug}`}
                 className="cat-home-card"
@@ -147,16 +147,16 @@ export default function Home() {
                   border: '1px solid #eadfae', boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                   transition: 'all 0.3s ease',
                 }}>
-                <div style={{ position: 'relative', height: '180px', background: 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)' }}>
+                <div style={{ position: 'relative', height: '128px', background: 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)' }}>
                   {categoryImages[cat.id] && (
                     <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="(max-width:768px) 50vw, 25vw" style={{ objectFit: 'cover', opacity: 0.5, mixBlendMode: 'screen' }} />
                   )}
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)' }} />
                 </div>
-                <div style={{ padding: '20px 16px', textAlign: 'center' }}>
-                  <p style={{ fontWeight: 900, color: '#2D5016', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{cat.title}</p>
-                  <p style={{ marginTop: '6px', fontSize: '12px', color: '#999', lineHeight: 1.6 }}>{cat.description}</p>
-                  <span style={{ display: 'inline-block', marginTop: '12px', fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400' }}>Explore →</span>
+                <div style={{ padding: '14px 12px', textAlign: 'center' }}>
+                  <p style={{ fontWeight: 900, color: '#2D5016', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{cat.title}</p>
+                  <p style={{ marginTop: '5px', fontSize: '11px', color: '#999', lineHeight: 1.55 }}>{cat.description}</p>
+                  <span style={{ display: 'inline-block', marginTop: '9px', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#E8B400' }}>Explore →</span>
                 </div>
               </Link>
             ))}
@@ -171,13 +171,13 @@ export default function Home() {
       </section></Reveal>
 
       {/* ── TESTIMONIALS ── */}
-      <Reveal><section style={{ background: '#ffffff', padding: 'clamp(52px, 9vw, 96px) 0' }}>
+      <Reveal><section style={{ background: '#ffffff', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Client Feedback</p>
           <h3 style={{ marginTop: '14px', fontSize: 'clamp(20px,2.7vw,31px)', fontWeight: 900, textTransform: 'uppercase', color: '#2D5016', lineHeight: 1.2 }}>
             People Say About Momil Foods
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '20px', marginTop: '48px', maxWidth: '1100px', marginLeft: 'auto', marginRight: 'auto' }} className="testi-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '18px', marginTop: '32px', maxWidth: '1100px', marginLeft: 'auto', marginRight: 'auto' }} className="testi-grid">
             {testimonials.map(([quote, name]) => (
               <article key={name} style={{
                 border: '1px solid #eadfae', background: '#fffdf7',
@@ -194,7 +194,7 @@ export default function Home() {
       </section></Reveal>
 
       {/* ── SERVICE STRIP ── */}
-      <section style={{ background: '#f8f5ec', padding: '60px 0' }}>
+      <section style={{ background: '#f8f5ec', padding: '40px 0' }}>
         <div className="site-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '14px' }} className="strip-grid">
             {['Quality Food', 'Private Label', 'Bulk Supply', 'Export Support'].map((item) => (
