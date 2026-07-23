@@ -17,13 +17,14 @@ const IMG = {
   honey:   'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80',
 }
 
+// Real Momil packs / produce — square-cropped so nothing clips inside the circle.
 const specialProducts = [
-  { title: 'Juices',              href: '/products/drinks-and-juices',          image: IMG.fruits },
-  { title: 'Himalayan Pink Salt', href: '/products/salts',                     image: IMG.spices },
-  { title: 'Dry Fruits',          href: '/products/bulk-dry-fruits-nuts',      image: IMG.nuts },
-  { title: 'Saag',                href: '/products/exclusive-products-saag-halwa', image: IMG.mangoes },
-  { title: 'Fried Onion',         href: '/products/fried-onion',               image: IMG.honey },
-  { title: 'Confectionery',       href: '/products/snacks',                    image: IMG.dates },
+  { title: 'Juices',              href: '/products/drinks-and-juices',             image: '/specials/juices.webp' },
+  { title: 'Himalayan Pink Salt', href: '/products/salts',                         image: '/specials/pink-salt.webp' },
+  { title: 'Dry Fruits',          href: '/products/bulk-dry-fruits-nuts',          image: '/specials/dry-fruits.webp' },
+  { title: 'Saag',                href: '/products/exclusive-products-saag-halwa', image: '/specials/saag.webp' },
+  { title: 'Fried Onion',         href: '/products/fried-onion',                   image: '/specials/fried-onion.webp' },
+  { title: 'Confectionery',       href: '/products/sweets-and-confectionery',      image: '/specials/confectionery.webp' },
 ]
 
 const categoryImages = {
