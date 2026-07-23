@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import ProductImageZoom from '@/components/ProductImageZoom'
 import MobileActionBar from '@/components/MobileActionBar'
 import { categories, products, getCategory, getProduct, getProductsByCategory } from '@/lib/data'
+import { formatWeight } from '@/lib/weight'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -41,6 +42,8 @@ export default async function ProductPage({ params }) {
   const relatedProducts = getProductsByCategory(categorySlug).filter(p => p.id !== product?.id).slice(0, 3)
 
   if (!product) return <div style={{ paddingTop: '200px', textAlign: 'center', color: '#999' }}>Product not found.</div>
+
+  const netWeight = formatWeight(product.weight)
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -88,24 +91,48 @@ export default async function ProductPage({ params }) {
               <p style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: '#E8B400' }}>{category?.title}</p>
               <h1 style={{ fontSize: 'clamp(24px,3vw,34px)', fontWeight: 900, color: '#2D5016', marginTop: '12px', lineHeight: 1.15 }}>{product.title}</h1>
 
-              <div style={{ display: 'flex', gap: '24px', marginTop: '24px', paddingBottom: '24px', borderBottom: '1px solid #f0ead8' }}>
-                {product.weight && (
-                  <div>
-                    <p style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#bbb', marginBottom: '4px' }}>Weight</p>
-                    <p style={{ fontSize: '16px', fontWeight: 700, color: '#333' }}>{product.weight}</p>
-                  </div>
-                )}
-                {product.origin && (
-                  <div>
-                    <p style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#bbb', marginBottom: '4px' }}>Origin</p>
-                    <p style={{ fontSize: '16px', fontWeight: 700, color: '#333' }}>{product.origin}</p>
-                  </div>
-                )}
-              </div>
+              {netWeight && (
+                <div style={{ marginTop: '22px', paddingBottom: '22px', borderBottom: '1px solid #f0ead8' }}>
+                  <p style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.18em', color: '#a9a9a9', marginBottom: '10px' }}>Net Weight</p>
+                  {netWeight.text ? (
+                    <p style={{ fontSize: '20px', fontWeight: 800, color: '#2D5016' }}>{netWeight.label}</p>
+                  ) : (
+                    <div style={{ display: 'flex', alignItems: 'stretch', gap: '18px' }}>
+                      <div>
+                        <p style={{ fontSize: '24px', fontWeight: 900, color: '#2D5016', lineHeight: 1.1 }}>{netWeight.metric}</p>
+                        <p style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#b7b7b7', marginTop: '3px' }}>Metric</p>
+                      </div>
+                      <div style={{ width: '1px', background: '#eadfae' }} />
+                      <div>
+                        <p style={{ fontSize: '24px', fontWeight: 900, color: '#8a6b12', lineHeight: 1.1 }}>{netWeight.imperial}</p>
+                        <p style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#b7b7b7', marginTop: '3px' }}>US / Imperial</p>
+                      </div>
+                    </div>
+                  )}
+                  {netWeight.note && (
+                    <p style={{ fontSize: '12px', color: '#999', marginTop: '8px' }}>Tolerance: {netWeight.note}</p>
+                  )}
+                </div>
+              )}
 
               {product.description && (
-                <p style={{ marginTop: '24px', fontSize: '16px', lineHeight: 1.9, color: '#666' }}>{product.description}</p>
+                <p style={{ marginTop: '20px', fontSize: '16px', lineHeight: 1.85, color: '#5f5f5f' }}>{product.description}</p>
               )}
+
+              {/* Export specification — the details an international buyer asks for first */}
+              <dl style={{ marginTop: '22px', display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '20px', rowGap: '9px', fontSize: '14px' }}>
+                {[
+                  ['Category', category?.title],
+                  ['Packing', netWeight?.text ? netWeight.label : (netWeight?.glass ? 'Glass packing' : 'Retail pack · bulk & private label available')],
+                  ['Certification', 'Halal · Export quality'],
+                  ['Lead time', 'Confirmed on enquiry'],
+                ].filter(([, v]) => v).map(([k, v]) => (
+                  <div key={k} style={{ display: 'contents' }}>
+                    <dt style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '11px', color: '#a9a9a9', paddingTop: '3px' }}>{k}</dt>
+                    <dd style={{ color: '#4a4a4a', margin: 0 }}>{v}</dd>
+                  </div>
+                ))}
+              </dl>
 
               <div style={{ display: 'flex', gap: '16px', marginTop: '36px', flexWrap: 'wrap' }}>
                 <Link href="/contact" style={{
