@@ -26,7 +26,10 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
   const { category: categorySlug } = await params
   const category = getCategory(categorySlug)
-  const products = getProductsByCategory(categorySlug)
+  // Products still awaiting a photo sink to the end, so a placeholder tile never
+  // opens the grid. Matches the ordering on /products.
+  const products = [...getProductsByCategory(categorySlug)]
+    .sort((a, b) => (a.image ? 0 : 1) - (b.image ? 0 : 1))
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
