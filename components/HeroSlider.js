@@ -9,21 +9,21 @@ const slides = [
     id: 'salt',
     eyebrow: 'Himalayan Pink Salt',
     title: 'Pure by Nature',
-    line: "Unrefined pink salt from Pakistan's Salt Range — supplied in retail packs, bulk and private label.",
+    line: "Unrefined salt from Pakistan's Salt Range — retail, bulk and private label.",
     image: '/hero/pink-salt.webp',
   },
   {
     id: 'range',
     eyebrow: 'Quality Food & Beverages Exporter',
     title: 'Momil Foods',
-    line: 'Juices, sweets, spices, salt and pantry staples — one sourcing partner for buyers in the USA, UK, Gulf and Europe.',
+    line: 'One sourcing partner for buyers across the USA, UK, Gulf and Europe.',
     image: '/hero/products.webp',
   },
   {
     id: 'dryfruit',
     eyebrow: 'Bulk Dry Fruits & Nuts',
     title: 'Naturally Dried',
-    line: 'Sun-dried figs, raisins, dates and mulberries — cleaned, graded and packed to export standard.',
+    line: 'Figs, raisins, dates and mulberries — cleaned, graded, export packed.',
     image: '/hero/dry-fruits.webp',
   },
 ]
@@ -83,7 +83,7 @@ export default function HeroSlider() {
               <motion.p
                 initial={{ y: 18, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.65, duration: 0.8 }}
-                className="mt-6 md:mt-8 max-w-xl mx-auto md:mx-0 text-base md:text-lg
+                className="mt-5 md:mt-7 max-w-[26rem] mx-auto md:mx-0 text-[15px] md:text-[17px]
                            leading-relaxed text-white/85 [text-shadow:0_2px_14px_rgba(0,0,0,0.6)]"
               >
                 {slide.line}
