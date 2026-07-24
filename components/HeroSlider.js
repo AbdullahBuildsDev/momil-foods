@@ -1,116 +1,125 @@
 'use client'
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
+// All three frames are served from our own domain — no third-party image hosts.
 const slides = [
   {
-    id: '1',
+    id: 'salt',
+    eyebrow: 'Himalayan Pink Salt',
+    title: 'Pure by Nature',
+    line: "Unrefined pink salt from Pakistan's Salt Range — supplied in retail packs, bulk and private label.",
+    image: '/hero/pink-salt.webp',
+  },
+  {
+    id: 'range',
+    eyebrow: 'Quality Food & Beverages Exporter',
     title: 'Momil Foods',
-    subtitle: 'Quality food and beverages exporter',
-    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1920&q=80',
-    href: '/products',
+    line: 'Juices, sweets, spices, salt and pantry staples — one sourcing partner for buyers in the USA, UK, Gulf and Europe.',
+    image: '/hero/products.webp',
   },
   {
-    id: '2',
-    title: 'Best Spices',
-    subtitle: 'Taste of Pakistan',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1920&q=80',
-    href: '/products/spices',
-  },
-  {
-    id: '3',
-    title: 'Dry Fruits',
-    subtitle: 'Premium selected products',
-    image: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=1920&q=80',
-    href: '/products/bulk-dry-fruits-nuts',
-  },
-  {
-    id: '4',
-    title: 'Natural Honey',
-    subtitle: 'Pure. Raw. Unfiltered.',
-    image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1920&q=80',
-    href: '/products/honey',
+    id: 'dryfruit',
+    eyebrow: 'Bulk Dry Fruits & Nuts',
+    title: 'Naturally Dried',
+    line: 'Sun-dried figs, raisins, dates and mulberries — cleaned, graded and packed to export standard.',
+    image: '/hero/dry-fruits.webp',
   },
 ]
+
+const HOLD = 9500 // ms each slide rests before the next crossfade
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    const t = setInterval(() => setCurrent((p) => (p + 1) % slides.length), 7000)
+    const t = setInterval(() => setCurrent((p) => (p + 1) % slides.length), HOLD)
     return () => clearInterval(t)
   }, [])
+
+  const slide = slides[current]
 
   return (
     <div className="relative min-h-[540px] h-[88svh] md:min-h-[720px] md:h-screen w-full overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
-          key={slides[current].id}
+          key={slide.id}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.3, ease: 'easeInOut' }}
           className="absolute inset-0 flex items-center justify-center bg-[#080c05]"
         >
           <Image
-            src={slides[current].image}
+            src={slide.image}
             alt=""
             fill
             priority
             sizes="100vw"
             className="object-cover momil-kenburns"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/46 to-black/22" />
-          <div className="absolute inset-0 bg-[#2D5016]/18 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+          <div className="absolute inset-0 bg-[#2D5016]/16 mix-blend-multiply" />
+
           <div className="relative site-container text-white">
-            <motion.div
-              initial={{ x: -35, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.18 }}
-              className="max-w-3xl text-center md:text-left"
-            >
-              <motion.p initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
-                className="text-sm md:text-lg tracking-[0.34em] uppercase mb-5 text-[#F5C518] font-extrabold drop-shadow">
-                {slides[current].subtitle}
+            <div className="max-w-3xl text-center md:text-left">
+              <motion.p
+                initial={{ y: -22, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.25, duration: 0.7 }}
+                className="text-[11px] sm:text-sm md:text-base tracking-[0.32em] uppercase mb-5 text-[#F5C518] font-extrabold"
+              >
+                {slide.eyebrow}
               </motion.p>
-              <motion.h1 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}
-                className="text-5xl sm:text-6xl md:text-8xl font-black drop-shadow-2xl leading-[0.95] uppercase">
-                {slides[current].title}
+
+              <motion.h1
+                initial={{ y: 26, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.45, duration: 0.8 }}
+                className="font-black uppercase leading-[0.94] tracking-[-0.015em]
+                           text-[14vw] sm:text-6xl md:text-7xl lg:text-8xl
+                           [text-shadow:0_4px_28px_rgba(0,0,0,0.55)]"
+              >
+                {slide.title}
               </motion.h1>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-                <Link href={slides[current].href} className="mt-10 inline-flex items-center justify-center border-2 border-[#E8B400] px-16 py-[18px] pl-[4.75rem] text-[13px] font-black tracking-[0.28em] text-[#E8B400] transition hover:bg-[#E8B400] hover:text-[#102006]">
-                  DISCOVER
-                </Link>
-              </motion.div>
-            </motion.div>
+
+              <motion.p
+                initial={{ y: 18, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.65, duration: 0.8 }}
+                className="mt-6 md:mt-8 max-w-xl mx-auto md:mx-0 text-base md:text-lg
+                           leading-relaxed text-white/85 [text-shadow:0_2px_14px_rgba(0,0,0,0.6)]"
+              >
+                {slide.line}
+              </motion.p>
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
 
       {/* Dot nav */}
       <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3">
-        {slides.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)}
+        {slides.map((s, i) => (
+          <button key={s.id} onClick={() => setCurrent(i)} aria-label={`Slide ${i + 1}`}
             className={`rounded-full transition-all ${i === current ? 'bg-[#F5C518] w-3 h-8' : 'bg-white/50 w-3 h-3'}`} />
         ))}
       </div>
 
       {/* Slide counter */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)}
+        {slides.map((s, i) => (
+          <button key={s.id} onClick={() => setCurrent(i)} aria-label={`Slide ${i + 1}`}
             className={`h-0.5 transition-all rounded-full ${i === current ? 'w-10 bg-[#F5C518]' : 'w-4 bg-white/40'}`} />
         ))}
       </div>
 
       <style>{`
         .momil-kenburns {
-          animation: momilKenBurns 8s ease-out forwards;
+          animation: momilKenBurns 14s ease-out forwards;
           transform-origin: center;
         }
         @keyframes momilKenBurns {
-          from { transform: scale(1.05); }
-          to   { transform: scale(1.16); }
+          from { transform: scale(1.04); }
+          to   { transform: scale(1.13); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .momil-kenburns { animation: none; }
         }
       `}</style>
     </div>

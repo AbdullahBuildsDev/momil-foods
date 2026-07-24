@@ -18,9 +18,10 @@ const specialProducts = [
 ]
 
 // Composed from Momil's own packs — one banner per category.
-// 'arqiyaat' is intentionally absent: no product photo exists yet, so that card
-// keeps the branded gradient rather than showing something unrelated.
+// 'arqiyaat' is the exception: no product photo exists for it yet, so it uses a
+// drawn illustration as a stand-in. Swap it for a real photo when one arrives.
 const categoryImages = {
+  arqiyaat:                        '/categories/arqiyaat.webp',
   'drinks-and-juices':             '/categories/drinks-and-juices.webp',
   'bulk-dry-fruits-nuts':          '/categories/bulk-dry-fruits-nuts.webp',
   spices:                          '/categories/spices.webp',

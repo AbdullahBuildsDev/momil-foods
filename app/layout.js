@@ -1,5 +1,14 @@
 import './globals.css'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
+
+// Self-hosted at build time — no runtime request to Google Fonts.
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 const SITE_URL = 'https://momilfoods.com'
 
@@ -42,10 +51,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={jakarta.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body>
         {children}
