@@ -3,9 +3,38 @@ import HeroSlider from '@/components/HeroSlider'
 import Footer from '@/components/Footer'
 import TrustBadges from '@/components/TrustBadges'
 import Reveal from '@/components/Reveal'
+import CountUp from '@/components/CountUp'
 import { categories } from '@/lib/data'
+import { CalendarClock, Tags, Layers, PackageCheck } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+
+// The commercial case for working with Momil. Deliberately does NOT repeat the
+// certification badges under the hero — those answer "is it compliant?", these
+// answer "why buy from you?".
+const whyMomil = [
+  {
+    Icon: CalendarClock,
+    stat: '13+',
+    title: 'Years of Experience',
+    text: 'Over a decade developing and exporting food products, so your order is handled by a team that has done it before.',
+  },
+  {
+    Icon: Tags,
+    title: 'Private Label',
+    text: 'Launch under your own brand. We support formulation, packing format and artwork — no factory investment needed.',
+  },
+  {
+    Icon: PackageCheck,
+    title: 'Flexible Quantities',
+    text: 'Begin with a trial order to test your market, then scale to full container loads as demand grows.',
+  },
+  {
+    Icon: Layers,
+    title: 'One-Window Sourcing',
+    text: 'Juices, dry fruits, spices, salt, sweets and pantry lines from a single partner — fewer suppliers to manage.',
+  },
+]
 
 // Real Momil packs / produce — square-cropped so nothing clips inside the circle.
 const specialProducts = [
@@ -139,6 +168,52 @@ export default function Home() {
         `}</style>
       </section>
 
+      {/* ── WHY MOMIL ── the "why you?" a buyer asks before enquiring */}
+      <Reveal><section style={{ background: '#f8f5ec', padding: 'clamp(34px, 5vw, 58px) 0' }}>
+        <div className="site-container" style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#D97706' }}>Why Momil</p>
+          <h2 style={{ marginTop: '12px', fontSize: 'clamp(23px,2.7vw,32px)', fontWeight: 300, textTransform: 'uppercase', color: '#3b3b3b', lineHeight: 1.2 }}>
+            <b>Built</b> for Export Buyers
+          </h2>
+
+          <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(1,1fr)', gap: '16px', marginTop: '34px', textAlign: 'left' }}>
+            {whyMomil.map(({ Icon, stat, title, text }) => (
+              <div key={title} style={{
+                background: '#fff', border: '1px solid #e6d8a4', padding: '26px 22px',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+              }}>
+                <span style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: '46px', height: '46px', borderRadius: '50%',
+                  background: 'rgba(232,180,0,0.14)', border: '1px solid rgba(232,180,0,0.4)',
+                }}>
+                  <Icon size={22} color="#B8860B" strokeWidth={2} />
+                </span>
+                {stat && (
+                  <p style={{ marginTop: '16px', fontSize: '28px', fontWeight: 900, color: '#2D5016', lineHeight: 1 }}>
+                    <CountUp value={stat} />
+                  </p>
+                )}
+                <p style={{ marginTop: stat ? '8px' : '16px', fontSize: '15px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#2D5016' }}>{title}</p>
+                <p style={{ marginTop: '9px', fontSize: '14px', lineHeight: 1.8, color: '#666' }}>{text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: '30px' }}>
+            <Link href="/contact" style={{
+              display: 'inline-flex', background: '#E8B400', color: '#102006',
+              padding: '15px 42px', fontSize: '13px', fontWeight: 900,
+              letterSpacing: '0.18em', textTransform: 'uppercase', textDecoration: 'none',
+            }}>Request a Quote</Link>
+          </div>
+        </div>
+        <style>{`
+          @media(min-width:640px){ .why-grid{ grid-template-columns:repeat(2,1fr)!important } }
+          @media(min-width:1024px){ .why-grid{ grid-template-columns:repeat(4,1fr)!important } }
+        `}</style>
+      </section></Reveal>
+
       {/* ── CATEGORIES ── */}
       <Reveal><section style={{ background: '#faf7ec', padding: 'clamp(34px, 5vw, 58px) 0' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
@@ -199,25 +274,6 @@ export default function Home() {
         </div>
         <style>{`@media(min-width:768px){.testi-grid{grid-template-columns:repeat(3,1fr)!important}}`}</style>
       </section></Reveal>
-
-      {/* ── SERVICE STRIP ── */}
-      <section style={{ background: '#f8f5ec', padding: '40px 0' }}>
-        <div className="site-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '14px' }} className="strip-grid">
-            {['Quality Food', 'Private Label', 'Bulk Supply', 'Export Support'].map((item) => (
-              <div key={item} style={{
-                background: '#fff', border: '1px solid #e6d8a4',
-                padding: '28px 12px', textAlign: 'center',
-                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
-              }}>
-                <div style={{ width: '28px', height: '3px', background: '#E8B400' }} />
-                <span style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D5016' }}>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <style>{`@media(min-width:640px){.strip-grid{grid-template-columns:repeat(4,1fr)!important}}`}</style>
-      </section>
 
       <Footer />
     </main>
