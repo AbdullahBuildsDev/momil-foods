@@ -18,8 +18,8 @@ export default function Products() {
       {/* Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, #0d1308 0%, #1a2a0f 50%, #0d1308 100%)',
-        paddingTop: '160px',
-        paddingBottom: '80px',
+        paddingTop: '132px',
+        paddingBottom: '46px',
         textAlign: 'center',
         color: '#fff',
         position: 'relative',
@@ -27,7 +27,7 @@ export default function Products() {
       }}>
         <div style={{
           position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 'clamp(120px,20vw,320px)', fontWeight: 900, color: 'rgba(232,180,0,0.04)',
+          fontSize: 'clamp(90px,15vw,220px)', fontWeight: 900, color: 'rgba(232,180,0,0.05)',
           pointerEvents: 'none', userSelect: 'none', lineHeight: 1, textTransform: 'uppercase',
         }}>Products</div>
         <div className="site-container" style={{ position: 'relative' }}>
@@ -36,67 +36,19 @@ export default function Products() {
             <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.35)' }}>/</span>
             <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>All Products</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(32px,4.5vw,54px)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1 }}>
+          <h1 style={{ fontSize: 'clamp(28px,3.6vw,42px)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1 }}>
             Our Products
           </h1>
-          <p style={{ marginTop: '16px', fontSize: '16px', color: 'rgba(255,255,255,0.5)', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p style={{ marginTop: '14px', fontSize: '15px', color: 'rgba(255,255,255,0.55)', maxWidth: '540px', marginLeft: 'auto', marginRight: 'auto' }}>
             Selected food and beverage products with dependable quality, practical packing and buyer-ready support from Lahore, Pakistan.
           </p>
         </div>
       </section>
 
-      {/* Category Chips - Mobile */}
-      <div className="md:hidden" style={{ background: '#fff', borderBottom: '1px solid #eadfae', padding: '16px', overflowX: 'auto' }}>
-        <div style={{ display: 'flex', gap: '8px', whiteSpace: 'nowrap' }}>
-          <Link href="/products" style={{
-            display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 800,
-            textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
-            background: '#2D5016', color: '#fff', border: '1px solid #2D5016',
-          }}>All</Link>
-          {categories.map((cat) => (
-            <Link key={cat.id} href={`/products/${cat.slug}`} style={{
-              display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 600,
-              textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
-              color: '#2D5016', border: '1px solid #eadfae',
-            }}>
-              {cat.title}
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Content */}
+      {/* Main Content — full width; filtering lives in the browser toolbar */}
       <div style={{ background: '#faf7ec', flex: 1 }}>
-        <div className="site-container" style={{ paddingTop: '48px', paddingBottom: '80px', display: 'flex', gap: '48px' }}>
-
-          {/* Desktop Sidebar */}
-          <aside className="hidden md:block" style={{ width: '260px', flexShrink: 0 }}>
-            <div style={{
-              position: 'sticky', top: '130px',
-              background: '#fff', padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-              border: '1px solid #eadfae',
-            }}>
-              <h3 style={{ fontWeight: 900, color: '#2D5016', fontSize: '16px', borderBottom: '2px solid #E8B400', paddingBottom: '12px', marginBottom: '16px' }}>Browse by</h3>
-              <Link href="/products" style={{ display: 'block', padding: '10px 0', fontSize: '14px', color: '#2D5016', fontWeight: 800, textDecoration: 'none', borderBottom: '1px solid #f0ead8' }}>
-                All products
-              </Link>
-              {categories.map((cat) => (
-                <Link key={cat.id} href={`/products/${cat.slug}`} style={{
-                  display: 'block', padding: '10px 0', fontSize: '14px', textDecoration: 'none',
-                  borderBottom: '1px solid #f0ead8', color: '#888', fontWeight: 400,
-                }}>
-                  {cat.title}
-                </Link>
-              ))}
-            </div>
-          </aside>
-
-          {/* Products Grid */}
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <h2 style={{ fontSize: 'clamp(20px,2.3vw,27px)', fontWeight: 900, color: '#2D5016', marginBottom: '20px' }}>All Products</h2>
-            <ProductBrowser products={products} categories={categories} />
-          </div>
-
+        <div className="site-container" style={{ paddingTop: '36px', paddingBottom: '72px' }}>
+          <ProductBrowser products={products} categories={categories} />
         </div>
       </div>
 

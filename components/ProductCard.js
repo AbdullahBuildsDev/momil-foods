@@ -20,8 +20,15 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
       {/* Media — square box that scales with card width (prominent image) */}
       <div style={{
         position: 'relative', width: '100%', aspectRatio: '1 / 1', background: '#fff',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '12px', overflow: 'hidden',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '6px', overflow: 'hidden',
       }}>
+        {product.featured && (
+          <span style={{
+            position: 'absolute', top: '10px', left: '10px', zIndex: 2,
+            background: '#E8B400', color: '#102006', fontSize: '9px', fontWeight: 900,
+            letterSpacing: '0.14em', textTransform: 'uppercase', padding: '4px 9px',
+          }}>Featured</span>
+        )}
         {product.image
           ? <Image src={product.image} alt={product.title} width={500} height={500}
               sizes="(max-width:640px) 45vw, (max-width:1024px) 30vw, 22vw"
@@ -51,10 +58,6 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
             display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden',
           }}>{product.description}</p>
         )}
-        <span style={{
-          marginTop: 'auto', paddingTop: '12px', fontSize: '10px', fontWeight: 800,
-          textTransform: 'uppercase', letterSpacing: '0.14em', color: '#E8B400',
-        }}>View Details →</span>
       </div>
     </Link>
   )
