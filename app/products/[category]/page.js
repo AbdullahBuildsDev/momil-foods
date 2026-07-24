@@ -1,8 +1,10 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ProductCard, { ProductGrid } from '@/components/ProductCard'
+import CategoryNav from '@/components/CategoryNav'
 import { categories, getCategory, getProductsByCategory } from '@/lib/data'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function generateStaticParams() {
   return categories.map((category) => ({
@@ -30,21 +32,30 @@ export default async function CategoryPage({ params }) {
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
 
-      {/* Hero Banner */}
+      {/* Hero — carries this category's own product banner behind the title */}
       <section style={{
         background: 'linear-gradient(135deg, #0d1308 0%, #1a2a0f 50%, #0d1308 100%)',
-        paddingTop: '160px',
-        paddingBottom: '80px',
+        paddingTop: '132px',
+        paddingBottom: '52px',
         textAlign: 'center',
         color: '#fff',
         position: 'relative',
         overflow: 'hidden',
       }}>
+        {category && (
+          <Image
+            src={`/categories/${category.id}.webp`}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', opacity: 0.3 }}
+          />
+        )}
         <div style={{
-          position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 'clamp(120px,20vw,320px)', fontWeight: 900, color: 'rgba(232,180,0,0.04)',
-          pointerEvents: 'none', userSelect: 'none', lineHeight: 1, textTransform: 'uppercase',
-        }}>{category?.title || 'Products'}</div>
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(180deg, rgba(6,10,4,0.86) 0%, rgba(6,10,4,0.62) 45%, rgba(6,10,4,0.92) 100%)',
+        }} />
         <div className="site-container" style={{ position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '20px' }}>
             <Link href="/" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
@@ -54,93 +65,65 @@ export default async function CategoryPage({ params }) {
             <span style={{ fontSize: '16px', color: '#E8B400', fontWeight: 700 }}>{category?.title}</span>
           </div>
           <h1 style={{
-            fontSize: 'clamp(32px,4.5vw,54px)',
+            fontSize: 'clamp(30px,4vw,46px)',
             fontWeight: 900,
             textTransform: 'uppercase',
             letterSpacing: '0.04em',
             lineHeight: 1,
+            textShadow: '0 3px 22px rgba(0,0,0,0.5)',
           }}>{category?.title || 'Products'}</h1>
-          <p style={{ marginTop: '16px', fontSize: '16px', color: 'rgba(255,255,255,0.5)', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p style={{ marginTop: '14px', fontSize: '16px', color: 'rgba(255,255,255,0.72)', maxWidth: '520px', marginLeft: 'auto', marginRight: 'auto' }}>
             {category?.description}
+          </p>
+          <p style={{ marginTop: '18px', fontSize: '12px', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#F5C518' }}>
+            {products.length} product{products.length !== 1 ? 's' : ''}
           </p>
         </div>
       </section>
 
-      {/* Category Chips - Mobile */}
-      <div className="md:hidden" style={{ background: '#fff', borderBottom: '1px solid #eadfae', padding: '16px', overflowX: 'auto' }}>
-        <div style={{ display: 'flex', gap: '8px', whiteSpace: 'nowrap' }}>
-          <Link href="/products" style={{
-            display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 800,
-            textTransform: 'uppercase', border: '1px solid #eadfae', borderRadius: '999px',
-            color: '#2D5016', textDecoration: 'none',
-          }}>All</Link>
-          {categories.map((cat) => (
-            <Link key={cat.id} href={`/products/${cat.slug}`} style={{
-              display: 'inline-block', padding: '8px 16px', fontSize: '14px', fontWeight: 600,
-              textTransform: 'uppercase', borderRadius: '999px', textDecoration: 'none',
-              background: cat.slug === categorySlug ? '#2D5016' : 'transparent',
-              color: cat.slug === categorySlug ? '#fff' : '#2D5016',
-              border: cat.slug === categorySlug ? '1px solid #2D5016' : '1px solid #eadfae',
-            }}>
-              {cat.title}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <CategoryNav activeSlug={categorySlug} />
 
-      {/* Main Content */}
+      {/* Main Content — full width, no sidebar squeezing the photography */}
       <div style={{ background: '#faf7ec', flex: 1 }}>
-        <div className="site-container" style={{ paddingTop: '48px', paddingBottom: '80px', display: 'flex', gap: '48px' }}>
-
-          {/* Desktop Sidebar */}
-          <aside className="hidden md:block" style={{ width: '260px', flexShrink: 0 }}>
-            <div style={{
-              position: 'sticky', top: '130px',
-              background: '#fff', padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-              border: '1px solid #eadfae',
-            }}>
-              <h3 style={{ fontWeight: 900, color: '#2D5016', fontSize: '16px', borderBottom: '2px solid #E8B400', paddingBottom: '12px', marginBottom: '16px' }}>Browse by</h3>
-              <Link href="/products" style={{ display: 'block', padding: '10px 0', fontSize: '14px', color: '#999', textDecoration: 'none', borderBottom: '1px solid #f0ead8' }}>
-                All products
-              </Link>
-              {categories.map((cat) => (
-                <Link key={cat.id} href={`/products/${cat.slug}`} style={{
-                  display: 'block', padding: '10px 0', fontSize: '14px', textDecoration: 'none',
-                  borderBottom: '1px solid #f0ead8',
-                  color: cat.slug === categorySlug ? '#2D5016' : '#888',
-                  fontWeight: cat.slug === categorySlug ? 800 : 400,
-                }}>
-                  {cat.title}
-                </Link>
+        <div className="site-container" style={{ paddingTop: '40px', paddingBottom: '72px' }}>
+          {products.length === 0 ? (
+            <div style={{ background: '#fff', border: '1px solid #eadfae', padding: '60px 20px', textAlign: 'center' }}>
+              <p style={{ color: '#bbb', fontSize: '16px' }}>No products yet in this category.</p>
+              <Link href="/products" style={{ display: 'inline-block', marginTop: '16px', fontSize: '14px', fontWeight: 700, color: '#2D5016', textDecoration: 'underline' }}>Browse all products</Link>
+            </div>
+          ) : (
+            <ProductGrid max={products.length <= 6 ? 3 : 4}>
+              {products.map((p) => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  categorySlug={categorySlug}
+                  categoryTitle={category?.title}
+                />
               ))}
-            </div>
-          </aside>
+            </ProductGrid>
+          )}
 
-          {/* Products Grid */}
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <p style={{ fontSize: '14px', color: '#999' }}>{products.length} product{products.length !== 1 ? 's' : ''}</p>
-            </div>
-
-            {products.length === 0 ? (
-              <div style={{ background: '#fff', border: '1px solid #eadfae', padding: '60px 20px', textAlign: 'center' }}>
-                <p style={{ color: '#bbb', fontSize: '16px' }}>No products yet in this category.</p>
-                <Link href="/products" style={{ display: 'inline-block', marginTop: '16px', fontSize: '14px', fontWeight: 700, color: '#2D5016', textDecoration: 'underline' }}>Browse all products</Link>
-              </div>
-            ) : (
-              <ProductGrid>
-                {products.map((p) => (
-                  <ProductCard
-                    key={p.id}
-                    product={p}
-                    categorySlug={categorySlug}
-                    categoryTitle={category?.title}
-                  />
-                ))}
-              </ProductGrid>
-            )}
+          {/* Close the page with a next step rather than dead space */}
+          <div style={{
+            marginTop: '48px', background: '#0d1308', padding: 'clamp(28px,4vw,44px)',
+            textAlign: 'center', border: '1px solid rgba(232,180,0,0.25)',
+          }}>
+            <p style={{ fontSize: '12px', fontWeight: 900, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#F5C518' }}>
+              Bulk & Private Label
+            </p>
+            <h2 style={{ marginTop: '12px', fontSize: 'clamp(20px,2.4vw,28px)', fontWeight: 900, color: '#fff', lineHeight: 1.25 }}>
+              Need {category?.title} in export quantities?
+            </h2>
+            <p style={{ marginTop: '10px', fontSize: '15px', color: 'rgba(255,255,255,0.6)', maxWidth: '520px', margin: '10px auto 0' }}>
+              Tell us your packing, quantity and destination — we will come back with options and pricing.
+            </p>
+            <Link href="/contact" style={{
+              display: 'inline-flex', marginTop: '24px', background: '#E8B400', color: '#102006',
+              padding: '15px 42px', fontSize: '13px', fontWeight: 900,
+              letterSpacing: '0.18em', textTransform: 'uppercase', textDecoration: 'none',
+            }}>Request a Quote</Link>
           </div>
-
         </div>
       </div>
 

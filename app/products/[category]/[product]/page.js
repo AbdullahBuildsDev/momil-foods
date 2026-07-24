@@ -39,7 +39,7 @@ export default async function ProductPage({ params }) {
   const { category: categorySlug, product: productSlug } = await params
   const product = getProduct(productSlug)
   const category = getCategory(categorySlug)
-  const relatedProducts = getProductsByCategory(categorySlug).filter(p => p.id !== product?.id).slice(0, 3)
+  const relatedProducts = getProductsByCategory(categorySlug).filter(p => p.id !== product?.id).slice(0, 4)
 
   if (!product) return <div style={{ paddingTop: '200px', textAlign: 'center', color: '#999' }}>Product not found.</div>
 
@@ -74,7 +74,12 @@ export default async function ProductPage({ params }) {
           <div className="product-detail-grid" style={{ display: 'grid', gap: '48px', background: '#fff', border: '1px solid #eadfae', overflow: 'hidden' }}>
 
             {/* Image (with zoom in / out) */}
-            <div style={{ background: '#fff', padding: '24px', height: '480px' }}>
+            {/* Packshots are shot on white, so the stage stays white — a tinted
+                backdrop would draw a hard edge around every product. */}
+            <div style={{
+              background: '#fff', borderRight: '1px solid #f4eeda',
+              padding: '24px', minHeight: '340px', height: 'clamp(340px, 34vw, 460px)',
+            }}>
               {product.image
                 ? <ProductImageZoom src={product.image} alt={product.title} />
                 : <div style={{
@@ -135,7 +140,7 @@ export default async function ProductPage({ params }) {
               </dl>
 
               <div style={{ display: 'flex', gap: '16px', marginTop: '36px', flexWrap: 'wrap' }}>
-                <Link href="/contact" style={{
+                <Link href={`/contact?product=${encodeURIComponent(product.title)}`} style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   background: '#E8B400', color: '#102006', padding: '16px 36px',
                   fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.15em',

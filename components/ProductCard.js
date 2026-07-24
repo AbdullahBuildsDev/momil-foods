@@ -67,9 +67,13 @@ export default function ProductCard({ product, categorySlug, categoryTitle, show
  * Responsive product grid — 2 columns on mobile, 3 on tablet, 4 on desktop,
  * for any number of products. Reusable across all product listings.
  */
-export function ProductGrid({ children }) {
+export function ProductGrid({ children, max = 4 }) {
+  // A short category looks better in fewer, larger columns than in a 4-wide row
+  // that trails off into empty space.
+  const wide = Math.min(max, 4)
+  const mid = Math.min(max, 3)
   return (
-    <div className="momil-pgrid">
+    <div className="momil-pgrid" data-max={wide}>
       {children}
       <style>{`
         .momil-pgrid {
@@ -79,10 +83,10 @@ export function ProductGrid({ children }) {
           align-items: stretch;
         }
         @media (min-width: 640px) {
-          .momil-pgrid { gap: 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+          .momil-pgrid { gap: 20px; grid-template-columns: repeat(${mid}, minmax(0, 1fr)); }
         }
         @media (min-width: 1024px) {
-          .momil-pgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+          .momil-pgrid { grid-template-columns: repeat(${wide}, minmax(0, 1fr)); }
         }
         .momil-pcard { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .momil-pcard:hover {

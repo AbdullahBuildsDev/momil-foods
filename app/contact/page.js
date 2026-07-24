@@ -1,11 +1,21 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState('')
+
+  // Arriving from a product page? Open the form with that product already named,
+  // so the buyer does not have to retype what they were just looking at.
+  useEffect(() => {
+    const product = new URLSearchParams(window.location.search).get('product')
+    if (product) {
+      setMessage(`I would like a quote for: ${product}\n\nQuantity required:\nPacking required:\nDestination country:`)
+    }
+  }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -126,7 +136,9 @@ export default function Contact() {
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '12px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', marginBottom: '8px' }}>Your Enquiry *</label>
-                <textarea required rows={5} name="message" placeholder="Tell us about the products you are looking for, quantities, packaging requirements..."
+                <textarea required rows={5} name="message"
+                  value={message} onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell us about the products you are looking for, quantities, packaging requirements..."
                   style={{ width: '100%', border: '1px solid #e0d5b3', background: '#fffdf7', padding: '12px 16px', fontSize: '14px', color: '#333', outline: 'none', resize: 'none' }} />
               </div>
               <button type="submit" disabled={loading}
