@@ -7,16 +7,6 @@ import { categories } from '@/lib/data'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Unsplash images — swap for real product photos when available
-const IMG = {
-  fruits:  'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=800&q=80',
-  spices:  'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
-  mangoes: 'https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=800&q=80',
-  nuts:    'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80',
-  dates:   'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80',
-  honey:   'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80',
-}
-
 // Real Momil packs / produce — square-cropped so nothing clips inside the circle.
 const specialProducts = [
   { title: 'Juices',              href: '/products/drinks-and-juices',             image: '/specials/juices.webp' },
@@ -27,10 +17,26 @@ const specialProducts = [
   { title: 'Confectionery',       href: '/products/sweets-and-confectionery',      image: '/specials/confectionery.webp' },
 ]
 
+// Composed from Momil's own packs — one banner per category.
+// 'arqiyaat' is intentionally absent: no product photo exists yet, so that card
+// keeps the branded gradient rather than showing something unrelated.
 const categoryImages = {
-  'drinks-and-juices': IMG.fruits,
-  spices:              IMG.spices,
-  honey:               IMG.honey,
+  'drinks-and-juices':             '/categories/drinks-and-juices.webp',
+  'bulk-dry-fruits-nuts':          '/categories/bulk-dry-fruits-nuts.webp',
+  spices:                          '/categories/spices.webp',
+  vermicellis:                     '/categories/vermicellis.webp',
+  tea:                             '/categories/tea.webp',
+  snacks:                          '/categories/snacks.webp',
+  honey:                           '/categories/honey.webp',
+  miscellanous:                    '/categories/miscellanous.webp',
+  'exclusive-products-saag-halwa': '/categories/exclusive-products-saag-halwa.webp',
+  'utensils-kitchenware':          '/categories/utensils-kitchenware.webp',
+  'pickle-achar':                  '/categories/pickle-achar.webp',
+  sauces:                          '/categories/sauces.webp',
+  'fried-onion':                   '/categories/fried-onion.webp',
+  salts:                           '/categories/salts.webp',
+  'sweets-and-confectionery':      '/categories/sweets-and-confectionery.webp',
+  'edible-gums-and-resins':        '/categories/edible-gums-and-resins.webp',
 }
 
 const testimonials = [
