@@ -230,9 +230,11 @@ export default function Home() {
                   border: '1px solid #eadfae', boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                   transition: 'all 0.3s ease',
                 }}>
-                <div style={{ position: 'relative', height: '150px', background: 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)' }}>
+                {/* Box matches the banner's own 900:492 ratio, so the whole
+                    image fits at any width — nothing is cropped on mobile. */}
+                <div style={{ position: 'relative', aspectRatio: '900 / 492', background: categoryImages[cat.id] ? '#fff' : 'linear-gradient(135deg,#0d1308,#2D5016,#1a3a0a)', borderBottom: '1px solid #f0ead8' }}>
                   {categoryImages[cat.id] && (
-                    <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="(max-width:768px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
+                    <Image src={categoryImages[cat.id]} alt={cat.title} fill sizes="(max-width:768px) 50vw, 25vw" style={{ objectFit: 'contain' }} />
                   )}
                 </div>
                 <div style={{ padding: '14px 12px', textAlign: 'center' }}>
