@@ -40,7 +40,7 @@ const whyMomil = [
 const specialProducts = [
   { title: 'Juices',              href: '/products/drinks-and-juices',             image: '/specials/juices.webp' },
   { title: 'Himalayan Pink Salt', href: '/products/salts',                         image: '/specials/pink-salt.webp' },
-  { title: 'Dry Fruits',          href: '/products/bulk-dry-fruits-nuts',          image: '/specials/dry-fruits.webp' },
+  { title: 'Dry Fruits',          href: '/products/dry-fruits-packing',            image: '/specials/dry-fruits.webp' },
   { title: 'Saag',                href: '/products/exclusive-products-saag-halwa', image: '/specials/saag.webp' },
   { title: 'Fried Onion',         href: '/products/fried-onion',                   image: '/specials/fried-onion.webp' },
   { title: 'Confectionery',       href: '/products/sweets-and-confectionery',      image: '/specials/confectionery.webp' },
@@ -52,7 +52,9 @@ const specialProducts = [
 const categoryImages = {
   arqiyaat:                        '/categories/arqiyaat.webp',
   'drinks-and-juices':             '/categories/drinks-and-juices.webp',
-  'bulk-dry-fruits-nuts':          '/categories/bulk-dry-fruits-nuts.webp',
+  'dry-fruits-bulk':               '/categories/dry-fruits-bulk.webp',
+  'dry-fruits-packing':            '/categories/dry-fruits-packing.webp',
+  'desi-ghee':                     '/categories/desi-ghee.webp',
   spices:                          '/categories/spices.webp',
   vermicellis:                     '/categories/vermicellis.webp',
   tea:                             '/categories/tea.webp',

@@ -101,6 +101,18 @@ export default async function ProductPage({ params }) {
                   <p style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.18em', color: '#a9a9a9', marginBottom: '10px' }}>Net Weight</p>
                   {netWeight.text ? (
                     <p style={{ fontSize: '20px', fontWeight: 800, color: '#2D5016' }}>{netWeight.label}</p>
+                  ) : netWeight.sizes ? (
+                    <div style={{ display: 'flex', alignItems: 'stretch', gap: '18px', flexWrap: 'wrap' }}>
+                      {netWeight.sizes.map((sz, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'stretch', gap: '18px' }}>
+                          {i > 0 && <div style={{ width: '1px', background: '#eadfae' }} />}
+                          <div>
+                            <p style={{ fontSize: '24px', fontWeight: 900, color: '#2D5016', lineHeight: 1.1 }}>{sz.metric}</p>
+                            <p style={{ fontSize: '13px', fontWeight: 800, color: '#8a6b12', marginTop: '2px' }}>{sz.imperial}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   ) : (
                     <div style={{ display: 'flex', alignItems: 'stretch', gap: '18px' }}>
                       <div>

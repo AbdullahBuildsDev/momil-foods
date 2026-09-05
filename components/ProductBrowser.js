@@ -28,6 +28,24 @@ export default function ProductBrowser({ products, categories }) {
   const catTitle = (id) => categories.find((c) => c.id === id || c.slug === id)?.title
   const catSlug = (id) => categories.find((c) => c.id === id)?.slug || id
 
+  // The catalogue order — the position of each category in the `categories`
+  // array (navbar, home grid and this page all share it). Products sort by this
+  // first so every category's items stay together and appear in the same
+  // sequence the client asked for; new products fall into place automatically.
+  const catRank = useMemo(() => {
+    const m = {}
+    categories.forEach((c, i) => { m[c.id] = i; m[c.slug] = i })
+    return m
+  }, [categories])
+  // Within a category, keep the exact order the products are listed in the data
+  // file, so hand-picked groupings (e.g. all pink salts, then all black salts)
+  // are preserved instead of being re-alphabetised.
+  const srcRank = useMemo(() => {
+    const m = new Map()
+    products.forEach((p, i) => m.set(p.id, i))
+    return m
+  }, [products])
+
   // How many products sit in each category — shown on the chips.
   const counts = useMemo(() => {
     const m = {}
@@ -48,14 +66,17 @@ export default function ProductBrowser({ products, categories }) {
     // Products still awaiting a photo always sink below the ones that have one,
     // so a visitor never lands on a placeholder tile first.
     const byPhoto = (a, b) => (a.image ? 0 : 1) - (b.image ? 0 : 1)
+    const byCatalogue = (a, b) =>
+      ((catRank[a.category] ?? 999) - (catRank[b.category] ?? 999)) ||
+      ((srcRank.get(a.id) ?? 0) - (srcRank.get(b.id) ?? 0))
     const order = {
       az: byTitle,
       za: (a, b) => byTitle(b, a),
-      category: (a, b) => (catTitle(a.category) || '').localeCompare(catTitle(b.category) || '') || byTitle(a, b),
-      featured: (a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0),
+      category: byCatalogue,
+      featured: (a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || byCatalogue(a, b),
     }[sort] || byTitle
     return [...list].sort((a, b) => byPhoto(a, b) || order(a, b))
-  }, [products, query, cat, sort])
+  }, [products, query, cat, sort, catRank, srcRank])
 
   // Any change to the filters starts the list again from the first page.
   useEffect(() => { setShown(PAGE) }, [query, cat, sort])

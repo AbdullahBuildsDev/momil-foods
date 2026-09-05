@@ -1,9 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.bhandarifoods.com)",
-      "Bash(npm run *)",
-      "Bash(mkdir -p /Users/sid/Downloads/momil-foods-main/app/blog/\\\\[slug\\\\])"
+      "Bash(git ls-remote *)",
+      "Bash(cd /Users/sid/Downloads/momil-foods-main *)",
+      "Bash(cp -R /tmp/momil_restore/. /Users/sid/Downloads/momil-foods-main/)",
+      "Bash(mv /tmp/momil_node_modules_backup /Users/sid/Downloads/momil-foods-main/node_modules)",
+      "Bash(grep -vE \"^\\\\.$|^\\\\.\\\\.$\")",
+      "Bash(git fetch *)",
+      "Bash(git rev-list *)",
+      "Bash(ls -la /Users/sid/.claude/projects/-Users-sid-Downloads-momil-foods-main/memory)",
+      "Bash(echo \"---MEMORY.md---\")",
+      "Bash(cat /Users/sid/.claude/projects/-Users-sid-Downloads-momil-foods-main/memory/MEMORY.md)",
+      "Bash(echo \"empty/none\")"
     ]
   }
 }
