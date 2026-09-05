@@ -64,12 +64,20 @@ export default function Footer() {
         <div>
           <h4 className="text-base font-black uppercase tracking-[0.22em] text-[#F5C518] mb-6">Quick Links</h4>
           <nav className="flex flex-col">
-            {[['/', 'Home'], ['/about', 'About'], ['/products', 'Products'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([href, label]) => (
+            {[['/', 'Home'], ['/about', 'About'], ['/products', 'Products'], ['/contact', 'Contact']].map(([href, label]) => (
               <Link key={href} href={href}
                 className="py-3 text-base text-white/65 hover:text-[#F5C518] border-b border-white/8 transition-colors">
                 {label}
               </Link>
             ))}
+            <a href="/momil-catalog.pdf" target="_blank" rel="noopener noreferrer"
+              className="py-3 text-base text-white/65 hover:text-[#F5C518] border-b border-white/8 transition-colors">
+              Catalog
+            </a>
+            <a href="/momil-certifications.pdf" target="_blank" rel="noopener noreferrer"
+              className="py-3 text-base text-white/65 hover:text-[#F5C518] border-b border-white/8 transition-colors">
+              Certifications
+            </a>
           </nav>
         </div>
 

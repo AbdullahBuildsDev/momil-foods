@@ -7,7 +7,7 @@ const BASE = 'https://momilfoods.com'
 export default function sitemap() {
   const now = new Date()
 
-  const staticRoutes = ['', '/about', '/products', '/contact', '/blog'].map((path) => ({
+  const staticRoutes = ['', '/about', '/products', '/contact'].map((path) => ({
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency: 'monthly',

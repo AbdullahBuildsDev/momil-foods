@@ -40,7 +40,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-12">
+        <div className="hidden md:flex items-center gap-6 lg:gap-9">
           {navLink('/', 'Home')}
           {navLink('/about', 'About')}
 
@@ -71,10 +71,23 @@ export default function Navbar() {
             )}
           </div>
 
-          {navLink('/blog', 'Blog')}
+          {/* Catalog & Certifications — PDFs the client provides in /public
+              (drop momil-catalog.pdf and momil-certifications.pdf there). */}
+          <a href="/momil-catalog.pdf" target="_blank" rel="noopener noreferrer"
+            className="relative text-[15px] font-semibold uppercase text-white transition-colors hover:text-[#F5C518] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#E8B400] after:transition-all hover:after:w-full">
+            Catalog
+          </a>
+          <a href="/momil-certifications.pdf" target="_blank" rel="noopener noreferrer"
+            className="relative text-[15px] font-semibold uppercase text-white transition-colors hover:text-[#F5C518] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#E8B400] after:transition-all hover:after:w-full">
+            Certifications
+          </a>
 
+          {/* Inline padding: the global `* { padding:0 }` reset in globals.css
+              outranks Tailwind's layered px-/py- utilities, so the border would
+              otherwise sit flush against the text. */}
           <Link href="/contact"
-            className="inline-flex items-center border-2 border-[#E8B400] px-9 py-3 pl-10 text-[12px] font-black uppercase tracking-[0.18em] text-white hover:bg-[#E8B400] hover:text-[#102006] transition-all duration-200 whitespace-nowrap">
+            style={{ padding: '15px 34px' }}
+            className="inline-flex items-center justify-center border-2 border-[#E8B400] text-[12px] font-black uppercase tracking-[0.18em] leading-none text-white hover:bg-[#E8B400] hover:text-[#102006] transition-all duration-200 whitespace-nowrap">
             Get In Touch
           </Link>
         </div>
@@ -97,13 +110,23 @@ export default function Navbar() {
         <div className="md:hidden border-t border-white/10 bg-[#070b05] px-5 py-4 max-h-[80vh] overflow-y-auto"
           style={{ animation: 'momilMenuDrop 0.25s ease-out' }}>
           <div className="flex flex-col">
-            {[['/', 'Home'], ['/about', 'About'], ['/products', 'All Products'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([href, label]) => (
+            {[['/', 'Home'], ['/about', 'About'], ['/products', 'All Products'], ['/contact', 'Contact']].map(([href, label]) => (
               <Link key={href} href={href}
                 className="py-3 text-sm font-bold uppercase text-white/85 border-b border-white/8 hover:text-[#F5C518] transition-colors"
                 onClick={() => setMobileOpen(false)}>
                 {label}
               </Link>
             ))}
+            <a href="/momil-catalog.pdf" target="_blank" rel="noopener noreferrer"
+              className="py-3 text-sm font-bold uppercase text-white/85 border-b border-white/8 hover:text-[#F5C518] transition-colors"
+              onClick={() => setMobileOpen(false)}>
+              Catalog
+            </a>
+            <a href="/momil-certifications.pdf" target="_blank" rel="noopener noreferrer"
+              className="py-3 text-sm font-bold uppercase text-white/85 border-b border-white/8 hover:text-[#F5C518] transition-colors"
+              onClick={() => setMobileOpen(false)}>
+              Certifications
+            </a>
           </div>
           <div className="mt-3 flex flex-col">
             <p className="text-[10px] font-black uppercase tracking-widest text-[#F5C518] py-3">Categories</p>
