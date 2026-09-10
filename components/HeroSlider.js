@@ -33,7 +33,11 @@ export default function HeroSlider() {
           (Height utilities are safe here; the global reset only kills padding.) */}
       <div className="h-[90px] md:h-[110px]" />
 
-      <div className="relative w-full aspect-[16/9] max-h-[calc(100svh-120px)] overflow-hidden bg-[#0d1308]">
+      {/* Pure 16:9 box (no max-height): the image ratio matches it exactly, so
+          object-cover shows the whole banner with zero crop on any width. A
+          max-height would make the box shorter than 16:9 on a short window and
+          clip the banners' own top/bottom text. */}
+      <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0d1308]">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
